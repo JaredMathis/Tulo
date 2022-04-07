@@ -38,7 +38,6 @@ export default function tulo_main(parent) {
         }
 
         phrase_untranslated(element_add(container, 'div'), question_english);    
-
         phrase_translated(element_add(container, 'div'), answer_english);
 
         let answer_match = answer_english === question_english;
