@@ -121,7 +121,7 @@ export default function tulo_main(parent) {
 
                 element_on_click(button_choice, () => {
                     if (choice_match) {
-                        on_success(element_choice);
+                        on_success(element_choice, element_question);
 
                     } else {
                         button_choice.disabled = true;
