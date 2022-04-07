@@ -10,14 +10,14 @@ const client = new textToSpeech.TextToSpeechClient();
 
 // The text to synthesize
 const text = 'kumusta';
+const languageCode = 'fil-PH';
 
-async function downloadAudio(text) {
-
+async function downloadAudio(text, languageCode) {
   // Construct the request
   const request = {
     input: {text: text},
     // Select the language and SSML voice gender (optional)
-    voice: {languageCode: 'fil-PH', ssmlGender: 'NEUTRAL'},
+    voice: {languageCode: languageCode, ssmlGender: 'NEUTRAL'},
     // select the type of audio encoding
     audioConfig: {audioEncoding: 'MP3'},
   };
