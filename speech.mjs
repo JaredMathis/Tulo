@@ -2,7 +2,6 @@ import path from 'path';
 import json_read from './json_read.mjs';
 import gcloud_text_to_speech from './gcloud_text_to_speech.mjs';
 
-// The text to synthesize
 const languageCode = 'fil-PH';
 
 const targetLanguageCode = 'ceb';
