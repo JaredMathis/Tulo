@@ -32,7 +32,7 @@ async function translate(targetLanguageCode, text) {
 // translateText(targetLanguageCode, 'hello');
 
 let language_directory = './languages/' + targetLanguageCode;
-await directory_create_if_not_exists();
+await directory_create_if_not_exists(language_directory);
 
 let path_translations = path.join(language_directory, 'translations.json');
 
@@ -43,7 +43,7 @@ if (!await file_exists(path_translations)) {
     await saveTranslations();
 }
 
-async function directory_create_if_not_exists() {
+async function directory_create_if_not_exists(language_directory) {
     if (!await directory_exists(language_directory)) {
         await fs.mkdir(language_directory);
     }
