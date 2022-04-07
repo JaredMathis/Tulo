@@ -52,12 +52,12 @@ export default function tulo_main(parent) {
         }
     })
 
-    let header3 = element_add(parent, 'h1');
-    element_html_inner(header3, yes); 
+    // let header3 = element_add(parent, 'h1');
+    // element_html_inner(header3, yes ? 'Yes' : 'No'); 
 
-    first_4.forEach(f => {
-        element_add(parent, 'hr')
-        phrase_untranslated(element_add(parent, 'div'), f)
-        phrase_translated(element_add(parent, 'div'), f)
-    })
+    // first_4.forEach(f => {
+    //     element_add(parent, 'hr')
+    //     phrase_untranslated(element_add(parent, 'div'), f)
+    //     phrase_translated(element_add(parent, 'div'), f)
+    // })
 }
