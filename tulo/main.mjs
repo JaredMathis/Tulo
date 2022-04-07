@@ -44,7 +44,9 @@ export default function tulo_main(parent) {
         function refresh_multiple_generic(on_load, on_success, question_phrase, choice_phrase) {
             let container = element_add(parent, 'div');
 
-            let choices_english = top100.slice(0, choice_count);
+            words = _.shuffle(words);
+
+            let choices_english = words.slice(0, choice_count);
             choices_english = _.shuffle(choices_english);
 
             let question_english = choices_english[js_random_integer(choices_english.length)];
