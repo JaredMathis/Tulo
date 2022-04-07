@@ -4,9 +4,9 @@ import {promises as fs} from 'fs'
 import path from 'path';
 import file_exists from './file_exists.mjs';
 import directory_create_if_not_exists from './directory_create_if_not_exists.mjs';
+import json_read from './json_read.mjs';
 
 gcloud_auth_initialize()
-
 
 // Creates a client
 const client = new textToSpeech.TextToSpeechClient();
@@ -41,4 +41,15 @@ async function downloadAudio(text, languageCode) {
   await writeFile(output_path, response.audioContent, 'binary');
   console.log('Audio content written to file: ' + output_path);
 }
-await downloadAudio(text, languageCode);
+
+const targetLanguageCode = 'ceb';
+
+let language_directory = './languages/' + targetLanguageCode;
+let path_translations = path.join(language_directory, 'translations.json');
+let translations = await json_read(path_translations);
+
+for (let english in translations) {
+  for (let translated of translations[english]) {
+    await downloadAudio(translated, languageCode);
+  }
+}
