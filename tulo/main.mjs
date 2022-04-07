@@ -9,10 +9,17 @@ export default function tulo_main(parent) {
 
     first_4.forEach(f => {
         let header = element_add(parent, 'h1');
-        let translated = translations[f];
-        element_html_inner(header, f + ' ' + translated)
 
-        element_on_click(header, () => {
+        let left = element_add(header, 'span');
+        element_html_inner(left, f)
+
+        let middle = element_add(header, 'span');
+        element_html_inner(middle, ' ')
+
+        let translated = translations[f];
+        let right = element_add(header, 'span');
+        element_html_inner(right, translated)
+        element_on_click(right, () => {
             var audio = new Audio(`.\\languages\\fil-PH\\audio\\${translated}.mp3`);
             audio.play();
         })
