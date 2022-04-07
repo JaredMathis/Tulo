@@ -53,6 +53,8 @@ translations = JSON.parse(await fs.readFile(path_translations));
 
 let words = [
     'hello',
+    'I',
+    "you"
 ];
 
 for (let w of words) {
