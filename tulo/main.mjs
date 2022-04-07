@@ -16,7 +16,7 @@ function js_random_integer(max) {
 }
 
 export default function tulo_main(parent) {
-    let word_count = 12;
+    let word_count = 15;
     let round_count_max = 12;
     let round_count = round_count_max;
     let skipped_words = [
