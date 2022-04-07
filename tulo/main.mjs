@@ -4,6 +4,8 @@ import element_on_click from '../element/on_click.mjs'
 import top100 from '../english/top100.txt.json' assert { type: 'json' };
 import translations from '../languages/ceb/translations.json' assert { type: 'json' };
 import _ from '../external/lodash.mjs'
+import phrase_english from './phrase_english.mjs';
+import phrase_translated from './phrase_translated.mjs';
 
 export default function tulo_main(parent) {
     let first_4 = top100.slice(0, 4);
@@ -26,8 +28,7 @@ export default function tulo_main(parent) {
 
     let prompt_translated = translations[prompt_english]
 
-    let header1 = element_add(parent, 'h1');
-    element_html_inner(header1, question_english);    
+    phrase_english(parent, question_english);    
 
     let header2 = element_add(parent, 'h1');
     element_html_inner(header2, prompt_translated); 
@@ -46,12 +47,6 @@ export default function tulo_main(parent) {
         let middle = element_add(header, 'span');
         element_html_inner(middle, ' ')
 
-        let translated = translations[f];
-        let right = element_add(header, 'span');
-        element_html_inner(right, translated)
-        element_on_click(right, () => {
-            var audio = new Audio(`.\\languages\\fil-PH\\audio\\${translated}.mp3`);
-            audio.play();
-        })
+        phrase_translated(header, f)
     })
 }
