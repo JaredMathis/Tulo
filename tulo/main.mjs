@@ -8,6 +8,7 @@ import phrase_translated from './phrase_translated.mjs';
 import element_on_click from '../element/on_click.mjs';
 import translations from '../languages/ceb/translations.json' assert { type: 'json' };
 import element_hide from '../element/hide.mjs';
+import element_show from '../element/show.mjs';
 
 function js_random_integer(max) {
     return Math.floor(Math.random() * max)
@@ -60,7 +61,13 @@ export default function tulo_main(parent) {
         if (round_new) {
             element_hide(container)
 
-
+            let container_rosetta = element_add(parent, 'div')
+            element_html_inner(element_add(container_rosetta, 'div'), 'New word: ');
+            component_rosetta(container_rosetta, _.last(words));
+            element_on_click(element_button_primary(container_rosetta, 'Okay!'), () => {
+                element_hide(container_rosetta)
+                element_show(container)
+            })
         }
 
         let button_all = element_button_primary(parent, 'all');
@@ -68,11 +75,11 @@ export default function tulo_main(parent) {
             words.forEach(word => {
                 element_add(parent, 'hr')
 
-                component_rosetta(word);
+                component_rosetta(parent, word);
             })
         })
 
-        function component_rosetta(word) {
+        function component_rosetta(parent, word) {
             phrase_untranslated(element_add(parent, 'div'), word);
             phrase_translated(element_add(parent, 'div'), word);
         }
