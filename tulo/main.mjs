@@ -13,6 +13,7 @@ function js_random_integer(max) {
 }
 
 export default function tulo_main(parent) {
+    let word_count = 8;
     let round_count = 1;
     let round_count_max = 16;
     let skipped_words = [
@@ -20,7 +21,6 @@ export default function tulo_main(parent) {
     ]
     let choice_count = 4;
     let answers_from_previous = 4;
-    let word_count = 8;
     let words = words_get();
 
     element_on_click(element_button_primary(parent, 'Start'), refresh);
@@ -39,6 +39,9 @@ export default function tulo_main(parent) {
         if (round_count === round_count_max) {
             round_count = 1;
             word_count++;
+            words = words_get();
+        } else {
+            round_count++;
         }
 
         if (js_random_integer(2) === 0) {
