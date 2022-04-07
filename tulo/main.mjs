@@ -1,10 +1,8 @@
 import element_add from '../element/add.mjs'
 import element_html_inner from '../element/html_inner.mjs'
-import element_on_click from '../element/on_click.mjs'
 import top100 from '../english/top100.txt.json' assert { type: 'json' };
-import translations from '../languages/ceb/translations.json' assert { type: 'json' };
 import _ from '../external/lodash.mjs'
-import phrase_english from './phrase_english.mjs';
+import phrase_untranslated from './phrase_untranslated.mjs';
 import phrase_translated from './phrase_translated.mjs';
 
 export default function tulo_main(parent) {
@@ -26,24 +24,16 @@ export default function tulo_main(parent) {
         prompt_english = wrong_choices_english[prompt_index]
     }
 
-    phrase_english(element_add(parent, 'div'), question_english);    
+    phrase_untranslated(element_add(parent, 'div'), question_english);    
 
     phrase_translated(element_add(parent, 'div'), prompt_english);
 
     let header3 = element_add(parent, 'h1');
     element_html_inner(header3, yes); 
 
-    element_add(parent, 'hr');
-
     first_4.forEach(f => {
-        let header = element_add(parent, 'h1');
-
-        let left = element_add(header, 'span');
-        element_html_inner(left, f)
-
-        let middle = element_add(header, 'span');
-        element_html_inner(middle, ' ')
-
-        phrase_translated(header, f)
+        element_add(parent, 'hr')
+        phrase_untranslated(element_add(parent, 'div'), f)
+        phrase_translated(element_add(parent, 'div'), f)
     })
 }
