@@ -11,7 +11,7 @@ const client = new textToSpeech.TextToSpeechClient();
 // The text to synthesize
 const text = 'kumusta';
 
-async function quickStart(text) {
+async function downloadAudio(text) {
 
   // Construct the request
   const request = {
@@ -29,4 +29,4 @@ async function quickStart(text) {
   await writeFile('output3.mp3', response.audioContent, 'binary');
   console.log('Audio content written to file: output.mp3');
 }
-quickStart();
+downloadAudio();
