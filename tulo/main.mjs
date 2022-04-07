@@ -90,7 +90,7 @@ export default function tulo_main(parent) {
             }
         }
 
-        function refresh_multiple_generic(on_load, on_success, question_phrase, choice_phrase) {
+        function refresh_multiple_generic(on_success, question_phrase, choice_phrase) {
             let container = element_add(parent, 'div');
 
             // These are the words we're working on right now
@@ -108,7 +108,6 @@ export default function tulo_main(parent) {
             let question_translated = translations[answer];
 
             let element_question = question_phrase(element_add(container, 'div'), answer);
-            on_load(element_question);
 
             choices_english.forEach(choice_english => {
                 let container_choice = element_add(container, 'div');
@@ -138,14 +137,16 @@ export default function tulo_main(parent) {
                 });
             })
 
-            return { container };
+            return { 
+                container, 
+                element_question,
+            };
         }
 
         
         function refresh_multiple_translated_to_untranslated() {
             let onload = element_question_translated => element_question_translated.play()
             let result = refresh_multiple_generic(
-                onload,
                 (choice_element, question_element) => {
                     question_element.audio.addEventListener('ended', () => {
                         refresh();
@@ -162,7 +163,6 @@ export default function tulo_main(parent) {
         function refresh_multiple_untranslated_to_translated() {
             let onload = _.noop
             let result = refresh_multiple_generic(
-                onload,
                 (choice_element) => {
                     choice_element.audio.addEventListener('ended', () => {
                         refresh();
