@@ -69,7 +69,10 @@ export default function tulo_main(parent) {
             element_on_click(element_button_primary(container_rosetta, 'Okay!'), () => {
                 element_hide(container_rosetta)
                 element_show(container)
+                result.onload();
             })
+        } else {
+            result.onload();
         }
 
         let button_all = element_button_primary(parent, 'all');
@@ -145,10 +148,11 @@ export default function tulo_main(parent) {
 
         
         function refresh_multiple_translated_to_untranslated() {
-            let onload = element_question_translated => {
-                element_question_translated.play();
+            let result;
+            let onload = () => {
+                result.element_question.play();
             }
-            let result = refresh_multiple_generic(
+            result = refresh_multiple_generic(
                 (choice_element, question_element) => {
                     question_element.audio.addEventListener('ended', () => {
                         refresh();
