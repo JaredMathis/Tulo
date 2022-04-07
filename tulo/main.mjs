@@ -17,6 +17,7 @@ export default function tulo_main(parent) {
     let choice_count = 4;
     let answers_from_previous = 4;
     let word_count = 8;
+    let filtered = top100;
     let words = top100.slice(0, word_count);
 
     element_on_click(element_button_primary(parent, 'Start'), refresh);
