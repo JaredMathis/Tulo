@@ -3,6 +3,7 @@ import gcloud_auth_initialize from './gcloud_auth_initialize.mjs';
 import {promises as fs} from 'fs'
 import path from 'path';
 import file_is_error_not_found from './file_is_error_not_found.mjs';
+import json_read from './json_read.mjs';
 
 gcloud_auth_initialize()
 
@@ -46,7 +47,7 @@ async function saveTranslations() {
     await fs.writeFile(path_translations, JSON.stringify(translations, null, 2));
 }
 
-translations = JSON.parse(await fs.readFile(path_translations));
+translations = json_read(path_translations);
 
 let words = [
     'I',
