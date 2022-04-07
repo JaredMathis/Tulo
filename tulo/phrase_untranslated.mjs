@@ -7,9 +7,8 @@ export default function phrase_untranslated(parent, english_phrase) {
 
     let left = element_add(container, 'span');
     element_html_inner(left, 'English: ');  
-    element_classes_add(left, ['text-muted'])
     
-    let right = element_add(container, 'span')
+    let right = element_add(container, 'b')
     element_html_inner(right, english_phrase);  
 
     return { container };

@@ -11,9 +11,8 @@ export default function phrase_translated(parent, untranslated) {
 
     let left = element_add(container, 'span');
     element_html_inner(left, 'Cebuano: ');  
-    element_classes_add(left, ['text-muted'])
     
-    let right = element_add(container, 'span')
+    let right = element_add(container, 'b')
     let translated = translations[untranslated];
     element_html_inner(right, translated);  
 
