@@ -1,6 +1,7 @@
 {
   "type": "module",
   "dependencies": {
+    "@google-cloud/speech": "^4.10.0",
     "@google-cloud/translate": "^6.3.1"
   }
 }
