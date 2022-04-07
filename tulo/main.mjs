@@ -27,25 +27,25 @@ export default function tulo_main(parent) {
 
         let yes = Math.random() > 0.5;
 
-        let prompt_english;
+        let answer_english;
         if (yes) {
-            prompt_english = question_english;
+            answer_english = question_english;
         } else {
             let wrong_choices_english = _.without(choices_english, question_english);
             // console.log({wrong_choices_english})
-            let prompt_index = js_random_integer(wrong_choices_english.length)
-            prompt_english = wrong_choices_english[prompt_index]
+            let answer_index = js_random_integer(wrong_choices_english.length)
+            answer_english = wrong_choices_english[answer_index]
         }
 
         phrase_untranslated(element_add(container, 'div'), question_english);    
 
-        phrase_translated(element_add(container, 'div'), prompt_english);
+        phrase_translated(element_add(container, 'div'), answer_english);
 
-        let prompt_match = prompt_english === question_english;
+        let answer_match = answer_english === question_english;
 
         let button_yes = element_button_primary(container, 'Yes');
         element_on_click(button_yes, () => {
-            if (prompt_match) {
+            if (answer_match) {
                 refresh();
             } else {
                 button_yes.disabled = true;
@@ -54,7 +54,7 @@ export default function tulo_main(parent) {
 
         let button_no = element_button_primary(container, 'No');
         element_on_click(button_no, () => {
-            if (prompt_match) {
+            if (answer_match) {
                 button_no.disabled = true;
             } else {
                 refresh();
