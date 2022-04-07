@@ -136,7 +136,12 @@ export default function tulo_main(parent) {
         function refresh_multiple_translated_to_untranslated() {
             return refresh_multiple_generic(
                 element_question_translated => element_question_translated.play(),
-                refresh,
+                (choice_element, question_element) => {
+                    question_element.audio.addEventListener('ended', () => {
+                        refresh();
+                    })
+                    question_element.play();
+                },
                 phrase_translated,
                 phrase_untranslated,
             )
