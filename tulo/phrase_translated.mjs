@@ -17,12 +17,14 @@ export default function phrase_translated(parent, untranslated) {
     let translated = translations[untranslated];
     element_html_inner(right, translated);  
 
-    element_on_click(right, () => {
+    const play = () => {
         tulo_audio_play(translated);
-    })
+    };
+    element_on_click(right, play)
 
     return {
         container,
+        play,
     };
 }
         
