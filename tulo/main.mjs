@@ -14,7 +14,7 @@ function js_random_integer(max) {
 
 export default function tulo_main(parent) {
     let word_count = 8;
-    let round_count = 1;
+    let round_count = 0;
     let round_count_max = 16;
     let skipped_words = [
         'a',
@@ -43,6 +43,8 @@ export default function tulo_main(parent) {
         } else {
             round_count++;
         }
+
+        element_html_inner(element_add(parent, 'div'), 'Round: ' + round_count + ' / ' + round_count_max + '; words: ' + word_count)
 
         if (js_random_integer(2) === 0) {
             refresh_multiple_translated_to_untranslated();
