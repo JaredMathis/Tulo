@@ -12,7 +12,6 @@ gcloud_auth_initialize()
 const client = new textToSpeech.TextToSpeechClient();
 
 // The text to synthesize
-const text = 'kumusta';
 const languageCode = 'fil-PH';
 
 async function gcloud_text_to_speech(text, languageCode) {
