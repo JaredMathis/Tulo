@@ -40,6 +40,9 @@ export default function tulo_main(parent) {
             round_count = 1;
             word_count++;
             words = words_get();
+
+            
+
         } else {
             round_count++;
         }
@@ -51,7 +54,6 @@ export default function tulo_main(parent) {
         } else {
             refresh_multiple_untranslated_to_translated();
         }
-
 
         let button_all = element_button_primary(parent, 'all');
         element_on_click(button_all, () => {
@@ -101,11 +103,13 @@ export default function tulo_main(parent) {
                     }
                 });
             })
+
+            return { container };
         }
 
         
         function refresh_multiple_translated_to_untranslated() {
-            refresh_multiple_generic(
+            return refresh_multiple_generic(
                 element_question_translated => element_question_translated.play(),
                 refresh,
                 phrase_translated,
@@ -114,7 +118,7 @@ export default function tulo_main(parent) {
         }
 
         function refresh_multiple_untranslated_to_translated() {
-            refresh_multiple_generic(
+            return refresh_multiple_generic(
                 _.noop,
                 (choice_element) => {
                     choice_element.audio.addEventListener('ended', () => {
