@@ -22,7 +22,7 @@ export default function tulo_main(parent) {
         // clear
         element_html_inner(parent, '');
 
-        refresh_binary();
+        refresh_multiple();
 
         let choices_english = first_4;
 
@@ -38,48 +38,31 @@ export default function tulo_main(parent) {
         function refresh_multiple() {
             let container = element_add(parent, 'div');
 
-            let choices_english = first_4;
+            let choices_english = top100.slice(0, 4);
+            choices_english = _.shuffle(choices_english);
 
             let question_english = choices_english[js_random_integer(choices_english.length)];
-
-            let yes = Math.random() > 0.5;
-
-            let answer_english;
-            if (yes) {
-                answer_english = question_english;
-            } else {
-                let wrong_choices_english = _.without(choices_english, question_english);
-                // console.log({wrong_choices_english})
-                let answer_index = js_random_integer(wrong_choices_english.length);
-                answer_english = wrong_choices_english[answer_index];
-            }
+            let question_translated = translations[question_english];
 
             phrase_untranslated(element_add(container, 'div'), question_english);
-            let translated = phrase_translated(element_add(container, 'div'), answer_english);
-            translated.play();
 
-            let question_translated = translations[question_english];
-            let answer_translated = translations[answer_english];
+            choices_english.forEach(choice_english => {
+                let choice = element_add(container, 'div');
+                let button_choice = element_button_primary(choice, 'Choose');
+                let choice_other_translated = phrase_translated(choice, choice_english);
 
-            let answer_match = question_translated === answer_translated;
+                let choice_translated = translations[choice_english];
+    
+                let choice_match = question_translated === choice_translated;
 
-            let button_yes = element_button_primary(container, 'Yes');
-            element_on_click(button_yes, () => {
-                if (answer_match) {
-                    refresh();
-                } else {
-                    button_yes.disabled = true;
-                }
-            });
-
-            let button_no = element_button_primary(container, 'No');
-            element_on_click(button_no, () => {
-                if (answer_match) {
-                    button_no.disabled = true;
-                } else {
-                    refresh();
-                }
-            });
+                element_on_click(button_choice, () => {
+                    if (choice_match) {
+                        refresh();
+                    } else {
+                        button_choice.disabled = true;
+                    }
+                });
+            })
         }
 
         function refresh_binary() {
