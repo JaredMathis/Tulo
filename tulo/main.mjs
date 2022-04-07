@@ -144,7 +144,7 @@ export default function tulo_main(parent) {
         
         function refresh_multiple_translated_to_untranslated() {
             let onload = element_question_translated => element_question_translated.play()
-            return refresh_multiple_generic(
+            let result = refresh_multiple_generic(
                 onload,
                 (choice_element, question_element) => {
                     question_element.audio.addEventListener('ended', () => {
@@ -155,6 +155,7 @@ export default function tulo_main(parent) {
                 phrase_translated,
                 phrase_untranslated,
             )
+            return result;
         }
 
         function refresh_multiple_untranslated_to_translated() {
