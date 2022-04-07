@@ -43,9 +43,9 @@ if (!await file_exists(path_translations)) {
     await saveTranslations();
 }
 
-async function directory_create_if_not_exists(language_directory) {
-    if (!await directory_exists(language_directory)) {
-        await fs.mkdir(language_directory);
+async function directory_create_if_not_exists(directory) {
+    if (!await directory_exists(directory)) {
+        await fs.mkdir(directory);
     }
 }
 
