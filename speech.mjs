@@ -9,8 +9,8 @@ gcloud_auth_initialize()
 const client = new textToSpeech.TextToSpeechClient();
 
 
-  // The text to synthesize
-  const text = 'kumusta';
+// The text to synthesize
+const text = 'kumusta';
 
 
 async function quickStart() {
