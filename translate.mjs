@@ -2,6 +2,7 @@ import {TranslationServiceClient} from '@google-cloud/translate';
 import gcloud_auth_initialize from './gcloud_auth_initialize.mjs';
 import {promises as fs} from 'fs'
 import path from 'path';
+import file_is_error_not_found from './file_is_error_not_found.mjs';
 
 gcloud_auth_initialize()
 
@@ -74,10 +75,6 @@ for (let w of words) {
 }
 await saveTranslations();
 
-function isErrorNotFound(err) {
-    return err.code === "ENOENT";
-}
-
 function directory_exists(path) {
     return fs
         .stat(path)
@@ -85,21 +82,7 @@ function directory_exists(path) {
             return fsStat.isDirectory();
         })
         .catch(err => {
-            if (isErrorNotFound(err)) {
-                return false;
-            }
-            throw err;
-        });
-}
-
-function file_exists(path) {
-    return fs
-        .stat(path)
-        .then(fsStat => {
-            return fsStat.isFile();
-        })
-        .catch(err => {
-            if (isErrorNotFound(err)) {
+            if (file_is_error_not_found(err)) {
                 return false;
             }
             throw err;
