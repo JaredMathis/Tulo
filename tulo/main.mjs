@@ -41,9 +41,11 @@ export default function tulo_main(parent) {
 
         phrase_translated(element_add(container, 'div'), prompt_english);
 
+        let prompt_match = prompt_english === question_english;
+
         let button_yes = element_button_primary(container, 'Yes');
         element_on_click(button_yes, () => {
-            if (yes) {
+            if (prompt_match) {
                 refresh();
             } else {
                 button_yes.disabled = true;
@@ -52,20 +54,21 @@ export default function tulo_main(parent) {
 
         let button_no = element_button_primary(container, 'No');
         element_on_click(button_no, () => {
-            if (yes) {
+            if (prompt_match) {
                 button_no.disabled = true;
             } else {
                 refresh();
             }
         })
 
-        // let header3 = element_add(parent, 'h1');
-        // element_html_inner(header3, yes ? 'Yes' : 'No'); 
+        let button_all = element_button_primary(parent, 'all');
+        element_on_click(button_all, () => {
+            choices_english.forEach(f => {
+                element_add(parent, 'hr')
+                phrase_untranslated(element_add(parent, 'div'), f)
+                phrase_translated(element_add(parent, 'div'), f)
+            })
+        })
 
-        // first_4.forEach(f => {
-        //     element_add(parent, 'hr')
-        //     phrase_untranslated(element_add(parent, 'div'), f)
-        //     phrase_translated(element_add(parent, 'div'), f)
-        // })
     }
 }
