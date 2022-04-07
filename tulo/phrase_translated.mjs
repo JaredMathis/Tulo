@@ -21,6 +21,8 @@ export default function phrase_translated(parent, untranslated) {
         tulo_audio_play(translated);
     })
 
-    return { container };
+    return {
+        container,
+    };
 }
         
