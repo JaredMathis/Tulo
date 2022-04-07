@@ -7,6 +7,7 @@ import phrase_untranslated from './phrase_untranslated.mjs';
 import phrase_translated from './phrase_translated.mjs';
 import element_on_click from '../element/on_click.mjs';
 import translations from '../languages/ceb/translations.json' assert { type: 'json' };
+import element_hide from '../element/hide.mjs';
 
 function js_random_integer(max) {
     return Math.floor(Math.random() * max)
@@ -14,7 +15,7 @@ function js_random_integer(max) {
 
 export default function tulo_main(parent) {
     let word_count = 8;
-    let round_count = 0;
+    let round_count = 16;
     let round_count_max = 16;
     let skipped_words = [
         'a',
@@ -36,11 +37,12 @@ export default function tulo_main(parent) {
         // clear
         element_html_inner(parent, '');
 
+        let round_new = false;
         if (round_count === round_count_max) {
             round_count = 1;
             word_count++;
             words = words_get();
-
+            round_new = true;
         } else {
             round_count++;
         }
@@ -55,12 +57,23 @@ export default function tulo_main(parent) {
         }
         let { container } = result;
 
+        if (round_new) {
+            element_hide(container)
+
+
+        }
+
         let button_all = element_button_primary(parent, 'all');
         element_on_click(button_all, () => {
             words.forEach(word => {
                 element_add(parent, 'hr')
-                phrase_untranslated(element_add(parent, 'div'), word)
-                phrase_translated(element_add(parent, 'div'), word)
+
+                component_rosetta(word);
+
+                function component_rosetta(word) {
+                    phrase_untranslated(element_add(parent, 'div'), word);
+                    phrase_translated(element_add(parent, 'div'), word);
+                }
             })
         })
 
