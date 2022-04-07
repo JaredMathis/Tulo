@@ -14,6 +14,10 @@ function js_random_integer(max) {
 
 export default function tulo_main(parent) {
 
+    let choice_count = 4;
+    let answers_from_previous = 4;
+    let words = 8;
+
     element_on_click(element_button_primary(parent, 'Start'), refresh);
 
     function refresh() {
@@ -26,8 +30,7 @@ export default function tulo_main(parent) {
             refresh_multiple_untranslated_to_translated();
         }
 
-        let first_4 = top100.slice(0, 4);
-        let choices_english = first_4;
+        let choices_english = top100.slice(0, words);
 
         let button_all = element_button_primary(parent, 'all');
         element_on_click(button_all, () => {
@@ -41,7 +44,7 @@ export default function tulo_main(parent) {
         function refresh_multiple_generic(on_load, on_success, question_phrase, choice_phrase) {
             let container = element_add(parent, 'div');
 
-            let choices_english = top100.slice(0, 4);
+            let choices_english = top100.slice(0, choice_count);
             choices_english = _.shuffle(choices_english);
 
             let question_english = choices_english[js_random_integer(choices_english.length)];
