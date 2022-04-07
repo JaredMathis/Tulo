@@ -64,6 +64,7 @@ export default function tulo_main(parent) {
             let container_rosetta = element_add(parent, 'div')
             element_html_inner(element_add(container_rosetta, 'div'), 'New word: ');
             let rosetta = component_rosetta(container_rosetta, _.last(words));
+            rosetta.translated.play();
             element_on_click(element_button_primary(container_rosetta, 'Okay!'), () => {
                 element_hide(container_rosetta)
                 element_show(container)
