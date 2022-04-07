@@ -80,8 +80,8 @@ export default function tulo_main(parent) {
         })
 
         function component_rosetta(parent, word) {
-            phrase_untranslated(element_add(parent, 'div'), word);
-            phrase_translated(element_add(parent, 'div'), word);
+            let untranslated = phrase_untranslated(element_add(parent, 'div'), word);
+            let translated = phrase_translated(element_add(parent, 'div'), word);
         }
 
         function refresh_multiple_generic(on_load, on_success, question_phrase, choice_phrase) {
