@@ -8,12 +8,11 @@ export default function tulo_main(parent) {
     let first_4 = top100.slice(0, 4);
 
     first_4.forEach(f => {
-        let element = element_add(parent, 'h1');
+        let header = element_add(parent, 'h1');
         let translated = translations[f];
-        element_html_inner(element, f + ' ' + translated)
+        element_html_inner(header, f + ' ' + translated)
 
-        element_on_click(element, () => {
-            
+        element_on_click(header, () => {
             var audio = new Audio(`.\\languages\\fil-PH\\audio\\${translated}.mp3`);
             audio.play();
         })
