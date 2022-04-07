@@ -41,19 +41,19 @@ export default function tulo_main(parent) {
             word_count++;
             words = words_get();
 
-            
-
         } else {
             round_count++;
         }
 
         element_html_inner(element_add(parent, 'div'), 'Round: ' + round_count + ' / ' + round_count_max + '; words: ' + word_count)
 
+        let result;
         if (js_random_integer(2) === 0) {
-            refresh_multiple_translated_to_untranslated();
+            result = refresh_multiple_translated_to_untranslated();
         } else {
-            refresh_multiple_untranslated_to_translated();
+            result = refresh_multiple_untranslated_to_translated();
         }
+        let { container } = result;
 
         let button_all = element_button_primary(parent, 'all');
         element_on_click(button_all, () => {
