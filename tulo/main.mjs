@@ -54,10 +54,11 @@ export default function tulo_main(parent) {
                 let choice_translated = translations[choice_english];
     
                 let choice_match = question_translated[0] === choice_translated[0];
-                console.log({question_english,question_translated,choice_english,choice_translated})
+                // console.log({question_english,question_translated,choice_english,choice_translated})
 
                 element_on_click(button_choice, () => {
                     if (choice_match) {
+                        choice_other_translated.play();
                         refresh();
                     } else {
                         button_choice.disabled = true;
