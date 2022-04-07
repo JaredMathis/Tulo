@@ -43,11 +43,6 @@ if (!await file_exists(path_translations)) {
     await saveTranslations();
 }
 
-async function directory_create_if_not_exists(directory) {
-    if (!await directory_exists(directory)) {
-        await fs.mkdir(directory);
-    }
-}
 
 async function saveTranslations() {
     await fs.writeFile(path_translations, JSON.stringify(translations, null, 2));
@@ -78,17 +73,3 @@ for (let w of words) {
     await saveTranslations();
 }
 await saveTranslations();
-
-function directory_exists(path) {
-    return fs
-        .stat(path)
-        .then(fsStat => {
-            return fsStat.isDirectory();
-        })
-        .catch(err => {
-            if (file_is_error_not_found(err)) {
-                return false;
-            }
-            throw err;
-        });
-}
