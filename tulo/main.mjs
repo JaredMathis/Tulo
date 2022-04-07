@@ -7,12 +7,16 @@ import phrase_untranslated from './phrase_untranslated.mjs';
 import phrase_translated from './phrase_translated.mjs';
 import element_on_click from '../element/on_click.mjs';
 
+function js_random_integer(max) {
+    return Math.floor(Math.random() * max)
+}
+
 export default function tulo_main(parent) {
     let first_4 = top100.slice(0, 4);
 
     let choices_english = first_4;
 
-    let question_english = choices_english[0]
+    let question_english = choices_english[js_random_integer(choices_english.length)]
 
     let yes = Math.random() > 0.5;
 
@@ -22,7 +26,7 @@ export default function tulo_main(parent) {
     } else {
         let wrong_choices_english = _.without(choices_english, question_english);
         // console.log({wrong_choices_english})
-        let prompt_index = Math.floor(Math.random() * wrong_choices_english.length)
+        let prompt_index = js_random_integer(wrong_choices_english.length)
         prompt_english = wrong_choices_english[prompt_index]
     }
 
@@ -35,14 +39,14 @@ export default function tulo_main(parent) {
         if (yes) {
             alert('correct')
         } else {
-            alert('incorrect');
+            button_yes.disabled = true;
         }
     })
 
     let button_no = element_button_primary(parent, 'No');
     element_on_click(button_no, () => {
         if (yes) {
-            alert('incorrect');
+            button_no.disabled = true;
         } else {
             alert('correct')
         }
