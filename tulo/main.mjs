@@ -22,7 +22,7 @@ export default function tulo_main(parent) {
         // clear
         element_html_inner(parent, '');
 
-        refresh_multiple();
+        refresh_multiple_untranslated_to_translated();
 
         let choices_english = first_4;
 
@@ -35,7 +35,7 @@ export default function tulo_main(parent) {
             })
         })
 
-        function refresh_multiple() {
+        function refresh_multiple_untranslated_to_translated() {
             let container = element_add(parent, 'div');
 
             let choices_english = top100.slice(0, 4);
@@ -53,7 +53,8 @@ export default function tulo_main(parent) {
 
                 let choice_translated = translations[choice_english];
     
-                let choice_match = question_translated === choice_translated;
+                let choice_match = question_translated[0] === choice_translated[0];
+                console.log({question_english,question_translated,choice_english,choice_translated})
 
                 element_on_click(button_choice, () => {
                     if (choice_match) {
