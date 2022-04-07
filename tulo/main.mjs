@@ -155,6 +155,7 @@ export default function tulo_main(parent) {
                 phrase_translated,
                 phrase_untranslated,
             )
+            result.onload = onload;
             return result;
         }
 
