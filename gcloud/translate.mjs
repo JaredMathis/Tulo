@@ -3,6 +3,7 @@ import gcloud_auth_initialize from './gcloud/auth_initialize.mjs';
 import {promises as fs} from 'fs'
 import path from 'path';
 import json_read from './json_read.mjs';
+import top100 from '../english/top100.txt.json' assert { type: 'json' };
 
 gcloud_auth_initialize()
 
@@ -54,12 +55,7 @@ let words = [
     'hello',
 ];
 
-let path_top100 = './english/top100.txt';
-let top100_text = await fs.readFile(path_top100, 'utf8')
-let rows = top100_text.split('\n');
-let mapped = rows.map(row => row.split('\t')[0])
-
-words = words.concat(mapped);
+words = words.concat(top100);
 
 for (let w of words) {
     if (translations.hasOwnProperty(w)) {
