@@ -15,7 +15,7 @@ const client = new textToSpeech.TextToSpeechClient();
 const text = 'kumusta';
 const languageCode = 'fil-PH';
 
-async function downloadAudio(text, languageCode) {
+async function gcloud_text_to_speech(text, languageCode) {
   let audio_directory = path.join('.', 'languages', languageCode, 'audio');
   await directory_create_if_not_exists(audio_directory);
 
@@ -50,6 +50,6 @@ let translations = await json_read(path_translations);
 
 for (let english in translations) {
   for (let translated of translations[english]) {
-    await downloadAudio(translated, languageCode);
+    await gcloud_text_to_speech(translated, languageCode);
   }
 }
