@@ -160,8 +160,9 @@ export default function tulo_main(parent) {
         }
 
         function refresh_multiple_untranslated_to_translated() {
-            return refresh_multiple_generic(
-                _.noop,
+            let onload = _.noop
+            let result = refresh_multiple_generic(
+                onload,
                 (choice_element) => {
                     choice_element.audio.addEventListener('ended', () => {
                         refresh();
@@ -171,6 +172,8 @@ export default function tulo_main(parent) {
                 phrase_untranslated,
                 phrase_translated,
             )
+            result.onload = onload;
+            return result;
         }
 
         function refresh_binary() {
