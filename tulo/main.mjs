@@ -13,7 +13,6 @@ function js_random_integer(max) {
 }
 
 export default function tulo_main(parent) {
-    let first_4 = top100.slice(0, 4);
 
     element_on_click(element_button_primary(parent, 'Start'), refresh);
 
@@ -27,6 +26,7 @@ export default function tulo_main(parent) {
             refresh_multiple_untranslated_to_translated();
         }
 
+        let first_4 = top100.slice(0, 4);
         let choices_english = first_4;
 
         let button_all = element_button_primary(parent, 'all');
