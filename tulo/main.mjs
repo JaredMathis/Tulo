@@ -69,13 +69,13 @@ export default function tulo_main(parent) {
                 element_add(parent, 'hr')
 
                 component_rosetta(word);
-
-                function component_rosetta(word) {
-                    phrase_untranslated(element_add(parent, 'div'), word);
-                    phrase_translated(element_add(parent, 'div'), word);
-                }
             })
         })
+
+        function component_rosetta(word) {
+            phrase_untranslated(element_add(parent, 'div'), word);
+            phrase_translated(element_add(parent, 'div'), word);
+        }
 
         function refresh_multiple_generic(on_load, on_success, question_phrase, choice_phrase) {
             let container = element_add(parent, 'div');
