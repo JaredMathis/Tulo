@@ -1,5 +1,5 @@
 import textToSpeech from '@google-cloud/text-to-speech';
-import gcloud_auth_initialize from './gcloud_auth_initialize.mjs';
+import gcloud_auth_initialize from './auth_initialize.mjs';
 import {promises as fs} from 'fs'
 import path from 'path';
 import file_exists from './file_exists.mjs';

@@ -1,5 +1,5 @@
 import {TranslationServiceClient} from '@google-cloud/translate';
-import gcloud_auth_initialize from './gcloud_auth_initialize.mjs';
+import gcloud_auth_initialize from './gcloud/auth_initialize.mjs';
 import {promises as fs} from 'fs'
 import path from 'path';
 import file_is_error_not_found from './file_is_error_not_found.mjs';

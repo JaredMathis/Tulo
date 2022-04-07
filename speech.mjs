@@ -1,6 +1,6 @@
 import path from 'path';
 import json_read from './json_read.mjs';
-import gcloud_text_to_speech from './gcloud_text_to_speech.mjs';
+import gcloud_text_to_speech from './gcloud/text_to_speech.mjs';
 
 const languageCode = 'fil-PH';
 
