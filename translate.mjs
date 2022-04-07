@@ -39,10 +39,8 @@ let path_translations = path.join(language_directory, 'translations.json');
 let translations;
 
 if (!await file_exists(path_translations)) {
-    translations = {a:"1"};
     await saveTranslations();
 }
-
 
 async function saveTranslations() {
     await fs.writeFile(path_translations, JSON.stringify(translations, null, 2));
