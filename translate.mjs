@@ -45,17 +45,23 @@ if (!await file_exists(path_translations)) {
 }
 
 async function saveTranslations() {
-    console.log({translations})
     await fs.writeFile(path_translations, JSON.stringify(translations, null, 2));
 }
 
 translations = JSON.parse(await fs.readFile(path_translations));
 
 let words = [
-    'hello',
     'I',
-    "you"
+    "you",
+    'hello',
 ];
+
+let path_top100 = './english/top100.txt';
+let top100_text = await fs.readFile(path_top100, 'utf8')
+let rows = top100_text.split('\n');
+let mapped = rows.map(row => row.split('\t')[0])
+
+words = words.concat(mapped);
 
 for (let w of words) {
     if (translations.hasOwnProperty(w)) {
