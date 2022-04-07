@@ -16,7 +16,7 @@ export default function tulo_main(parent) {
 
     let choice_count = 4;
     let answers_from_previous = 4;
-    let words = 8;
+    let word_count = 8;
 
     element_on_click(element_button_primary(parent, 'Start'), refresh);
 
@@ -30,7 +30,7 @@ export default function tulo_main(parent) {
             refresh_multiple_untranslated_to_translated();
         }
 
-        let choices_english = top100.slice(0, words);
+        let choices_english = top100.slice(0, word_count);
 
         let button_all = element_button_primary(parent, 'all');
         element_on_click(button_all, () => {
