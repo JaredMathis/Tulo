@@ -26,12 +26,9 @@ export default function tulo_main(parent) {
         prompt_english = wrong_choices_english[prompt_index]
     }
 
-    let prompt_translated = translations[prompt_english]
+    phrase_english(element_add(parent, 'div'), question_english);    
 
-    phrase_english(parent, question_english);    
-
-    let header2 = element_add(parent, 'h1');
-    element_html_inner(header2, prompt_translated); 
+    phrase_translated(element_add(parent, 'div'), prompt_english);
 
     let header3 = element_add(parent, 'h1');
     element_html_inner(header3, yes); 
