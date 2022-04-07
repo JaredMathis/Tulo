@@ -16,7 +16,7 @@ function js_random_integer(max) {
 }
 
 export default function tulo_main(parent) {
-    let word_count = 8;
+    let word_count = 11;
     let round_count = 16;
     let round_count_max = 16;
     let skipped_words = [
@@ -143,8 +143,9 @@ export default function tulo_main(parent) {
 
         
         function refresh_multiple_translated_to_untranslated() {
+            let onload = element_question_translated => element_question_translated.play()
             return refresh_multiple_generic(
-                element_question_translated => element_question_translated.play(),
+                onload,
                 (choice_element, question_element) => {
                     question_element.audio.addEventListener('ended', () => {
                         refresh();
