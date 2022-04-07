@@ -10,11 +10,11 @@ gcloud_auth_initialize()
 // Creates a client
 const client = new textToSpeech.TextToSpeechClient();
 
-export default async function gcloud_text_to_speech(text, languageCode) {
+export default async function gcloud_text_to_speech(text, languageCode, file_name) {
     let audio_directory = path.join('.', 'languages', languageCode, 'audio');
     await directory_create_if_not_exists(audio_directory);
   
-    let output_path = path.join(audio_directory, text + '.mp3')
+    let output_path = path.join(audio_directory, (file_name || text) + '.mp3')
     if (await file_exists(output_path)) {
       console.log('skipping ' + output_path);
       return;
