@@ -1,4 +1,4 @@
-export default function tulo_audio_play(translated) {
+export default function tulo_audio(translated) {
     var audio = new Audio(`.\\languages\\fil-PH\\audio\\${translated}.mp3`);
-    audio.play();
+    return audio;
 }

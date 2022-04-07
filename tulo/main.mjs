@@ -6,7 +6,7 @@ import _ from '../external/lodash.mjs'
 import phrase_untranslated from './phrase_untranslated.mjs';
 import phrase_translated from './phrase_translated.mjs';
 import element_on_click from '../element/on_click.mjs';
-import tulo_audio_play from './audio_play.mjs';
+import tulo_audio_play from './audio.mjs';
 import translations from '../languages/ceb/translations.json' assert { type: 'json' };
 
 function js_random_integer(max) {
@@ -22,7 +22,11 @@ export default function tulo_main(parent) {
         // clear
         element_html_inner(parent, '');
 
-        refresh_multiple_untranslated_to_translated();
+        if (js_random_integer(2) === 0) {
+            refresh_multiple_translated_to_untranslated();
+        } else {
+            refresh_multiple_untranslated_to_translated();
+        }
 
         let choices_english = first_4;
 
@@ -34,6 +38,39 @@ export default function tulo_main(parent) {
                 phrase_translated(element_add(parent, 'div'), f)
             })
         })
+
+        
+        function refresh_multiple_translated_to_untranslated() {
+            let container = element_add(parent, 'div');
+
+            let choices_english = top100.slice(0, 4);
+            choices_english = _.shuffle(choices_english);
+
+            let question_english = choices_english[js_random_integer(choices_english.length)];
+            let question_translated = translations[question_english];
+
+            let element_question_translated = phrase_translated(element_add(container, 'div'), question_english);
+            element_question_translated.play();
+
+            choices_english.forEach(choice_english => {
+                let choice = element_add(container, 'div');
+                let button_choice = element_button_primary(choice, 'Choose');
+                let choice_other_translated = phrase_untranslated(choice, choice_english);
+
+                let choice_translated = translations[choice_english];
+    
+                let choice_match = question_translated[0] === choice_translated[0];
+                // console.log({question_english,question_translated,choice_english,choice_translated})
+
+                element_on_click(button_choice, () => {
+                    if (choice_match) {
+                        refresh();
+                    } else {
+                        button_choice.disabled = true;
+                    }
+                });
+            })
+        }
 
         function refresh_multiple_untranslated_to_translated() {
             let container = element_add(parent, 'div');
@@ -58,8 +95,10 @@ export default function tulo_main(parent) {
 
                 element_on_click(button_choice, () => {
                     if (choice_match) {
+                        choice_other_translated.audio.addEventListener('ended', () => {
+                            refresh();
+                        })
                         choice_other_translated.play();
-                        refresh();
                     } else {
                         button_choice.disabled = true;
                     }
