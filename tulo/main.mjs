@@ -13,20 +13,33 @@ function js_random_integer(max) {
 }
 
 export default function tulo_main(parent) {
+    let round_count = 1;
+    let round_count_max = 16;
     let skipped_words = [
         'a',
     ]
     let choice_count = 4;
     let answers_from_previous = 4;
     let word_count = 8;
-    let filtered = top100.filter(w => !skipped_words.includes(w));
-    let words = filtered.slice(0, word_count);
+    let words = words_get();
 
     element_on_click(element_button_primary(parent, 'Start'), refresh);
+
+    function words_get() {
+        let filtered = top100.filter(w => !skipped_words.includes(w));
+        let words_sorted = filtered.slice(0, word_count);
+        let words = words_sorted;
+        return words;
+    }
 
     function refresh() {
         // clear
         element_html_inner(parent, '');
+
+        if (round_count === round_count_max) {
+            round_count = 1;
+            word_count++;
+        }
 
         if (js_random_integer(2) === 0) {
             refresh_multiple_translated_to_untranslated();
@@ -47,15 +60,21 @@ export default function tulo_main(parent) {
         function refresh_multiple_generic(on_load, on_success, question_phrase, choice_phrase) {
             let container = element_add(parent, 'div');
 
-            words = _.shuffle(words);
+            // These are the words we're working on right now
+            let answers = words.slice(word_count - answers_from_previous, word_count);
+            let answer = answers[js_random_integer(answers_from_previous)];
 
-            let choices_english = words.slice(0, choice_count);
+            let words_without_answer = _.without(words, answer);
+            words_without_answer = _.shuffle(words_without_answer);
+
+            let choices_english = words_without_answer.slice(0, choice_count - 1).concat(answer);
             choices_english = _.shuffle(choices_english);
 
-            let question_english = choices_english[js_random_integer(choices_english.length)];
-            let question_translated = translations[question_english];
+            console.log({choices_english, answer: answer, answers})
 
-            let element_question = question_phrase(element_add(container, 'div'), question_english);
+            let question_translated = translations[answer];
+
+            let element_question = question_phrase(element_add(container, 'div'), answer);
             on_load(element_question);
 
             choices_english.forEach(choice_english => {
