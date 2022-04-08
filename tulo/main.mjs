@@ -16,7 +16,7 @@ function js_random_integer(max) {
 }
 
 export default function tulo_main(parent) {
-    let word_count = 15;
+    let word_count = 16;
     let round_count_max = 12;
     let round_count = round_count_max;
     let skipped_words = [
@@ -135,6 +135,7 @@ export default function tulo_main(parent) {
                         on_success(element_choice, element_question);
 
                     } else {
+                        element_classes_add(element_choice.container, ['bg-danger', 'text-white'])
                         button_choice.disabled = true;
                     }
                 });
