@@ -52,11 +52,22 @@ export default function tulo_main(parent) {
 
         element_html_inner(element_add(parent, 'div'), 'Round: ' + round_count + ' / ' + round_count_max + '; words: ' + word_count)
 
+        // These are the words we're working on right now
+        let answers;
+        if (is_review) {
+            answers = words;
+        } else {
+            answers = words.slice(word_count - answers_from_previous, word_count);
+        }
+        let answer = answers[js_random_integer(answers.length)];
+
+        console.log({answer, answers})
+
         let result;
         if (js_random_integer(2) === 0) {
-            result = refresh_multiple_translated_to_untranslated(is_review);
+            result = refresh_multiple_translated_to_untranslated(answer);
         } else {
-            result = refresh_multiple_untranslated_to_translated(is_review);
+            result = refresh_multiple_untranslated_to_translated(answer);
         }
         let { container } = result;
 
@@ -95,18 +106,8 @@ export default function tulo_main(parent) {
         }
 
         function refresh_multiple_generic(
-            is_review, on_success, question_phrase, choice_phrase) {
+            answer, on_success, question_phrase, choice_phrase) {
 
-            // These are the words we're working on right now
-            let answers;
-            if (is_review) {
-                answers = words;
-            } else {
-                answers = words.slice(word_count - answers_from_previous, word_count);
-            }
-            let answer = answers[js_random_integer(answers.length)];
-
-            console.log({answer, answers})
 
             return refresh_todo(answer, question_phrase, choice_phrase, on_success);
         }
@@ -161,13 +162,13 @@ export default function tulo_main(parent) {
             };
         }
 
-        function refresh_multiple_translated_to_untranslated(is_review) {
+        function refresh_multiple_translated_to_untranslated(answer) {
             let result;
             let onload = () => {
                 result.element_question.play();
             }
             result = refresh_multiple_generic(
-                is_review,
+                answer,
                 (choice_element, question_element) => {
                     question_element.audio.addEventListener('ended', () => {
                         refresh();
@@ -181,10 +182,10 @@ export default function tulo_main(parent) {
             return result;
         }
 
-        function refresh_multiple_untranslated_to_translated(is_review) {
+        function refresh_multiple_untranslated_to_translated(answer) {
             let onload = _.noop
             let result = refresh_multiple_generic(
-                is_review,
+                answer,
                 (choice_element) => {
                     choice_element.audio.addEventListener('ended', () => {
                         refresh();
