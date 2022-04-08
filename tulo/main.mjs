@@ -264,7 +264,6 @@ export default function tulo_main(parent) {
         let translated = phrase_translated(element_add(parent, 'div'), word);
         [untranslated,translated]
             .forEach(e => element_classes_add(e.container, ['bg-success', 'text-white']))
-        e;
         return {
             untranslated,
             translated,
