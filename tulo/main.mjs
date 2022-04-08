@@ -30,10 +30,10 @@ export default function tulo_main(parent) {
     let words = words_get();
     let mistakes = [];
 
-    let is_review = true;
-    let mode_review = 'mode_review';
-    let mode_learn = 'mode_learn';
-    let mode_mistakes = 'mode_mistakes';
+    let mode_review_existing = 'mode_review_existing';
+    let mode_learn_new = 'mode_learn_new';
+    let mode_practice_mistakes = 'mode_practice_mistakes';
+    let mode = mode_review_existing;
 
     // These are the words we're working on right now
     let answers = answers_get();
@@ -45,11 +45,15 @@ export default function tulo_main(parent) {
         element_html_inner(parent, '');
 
         element_on_click(element_button_primary(parent, 'Learn new words'), () => {
-            is_review = false
+            mode = mode_learn_new;
             refresh();
         });
         element_on_click(element_button_primary(parent, 'Review existing words'), () => {
-            is_review = true
+            mode = mode_review_existing;
+            refresh();
+        });
+        element_on_click(element_button_primary(parent, 'Practice mistakes'), () => {
+            mode = mode_practice_mistakes;
             refresh();
         });
         let button_all = element_button_primary(parent, 'View all learned words');
@@ -75,7 +79,7 @@ export default function tulo_main(parent) {
 
         let round_new = false;
 
-        if (!is_review && question_index === question_count_max) {
+        if (mode === mode_learn_new && question_index === question_count_max) {
             question_index = 0;
             word_count++;
             words = words_get();
@@ -92,7 +96,7 @@ export default function tulo_main(parent) {
 
         let container_labels = element_add(parent, 'div');
         element_html_inner(element_add(container_labels, 'div'), 'Progress: You are on question: ' + question_index + '. ')
-        if (!is_review) {
+        if (mode === mode_learn_new) {
             element_html_inner(element_add(container_labels, 'div'), 'You will learn a new word after question ' + question_count_max + ". ")
         }
         element_html_inner(element_add(container_labels, 'div'), 'You have learned ' + word_count + ' word(s).')
@@ -117,7 +121,7 @@ export default function tulo_main(parent) {
         }
         let { container } = result;
 
-        if (!is_review && round_new) {
+        if (mode === mode_learn_new && round_new) {
             element_hide(container)
 
             let container_rosetta = element_add(parent, 'div')
@@ -297,12 +301,18 @@ export default function tulo_main(parent) {
 
     function answers_get() {
         let answers;
-        if (is_review) {
+        let shuffle = true;
+        if (mode === mode_review_existing) {
             answers = words;
-        } else {
+        } else if (mode === mode_learn_new) {
             answers = words.slice(word_count - answers_from_previous, word_count);
+        } else if (mode === mode_practice_mistakes) {
+            answers = mistakes;
+            shuffle = false;
         }
-        answers = _.shuffle(answers)
+        if (shuffle) {
+            answers = _.shuffle(answers)
+        }
         return answers;
     }
 }
