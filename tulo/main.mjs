@@ -108,15 +108,20 @@ export default function tulo_main(parent) {
 
             console.log({answer, answers})
 
+            return refresh_todo(answer, question_phrase, choice_phrase, on_success);
+        }
+
+        
+        function refresh_todo(answer, question_phrase, choice_phrase, on_success) {
             let container = element_add(parent, 'div');
-            
+
             let words_without_answer = _.without(words, answer);
             words_without_answer = _.shuffle(words_without_answer);
 
             let choices_english = words_without_answer.slice(0, choice_count - 1).concat(answer);
             choices_english = _.shuffle(choices_english);
 
-            console.log({choices_english})
+            console.log({ choices_english });
 
             let question_translated = translations[answer];
 
@@ -128,36 +133,34 @@ export default function tulo_main(parent) {
                 let element_choice = choice_phrase(container_choice, choice_english);
 
                 let choice_translated = translations[choice_english];
-    
+
                 let choice_match = question_translated[0] === choice_translated[0];
                 // console.log({question_english,question_translated,choice_english,choice_translated})
-
                 element_on_click(button_choice, () => {
                     if (choice_match) {
                         let elements = [
                             element_choice,
                             element_question,
-                        ]
+                        ];
                         elements.forEach(e => {
-                            element_classes_add(e.container, ['bg-success', 'text-white'])
-                        })
-                        
+                            element_classes_add(e.container, ['bg-success', 'text-white']);
+                        });
+
                         on_success(element_choice, element_question);
 
                     } else {
-                        element_classes_add(element_choice.container, ['bg-danger', 'text-white'])
+                        element_classes_add(element_choice.container, ['bg-danger', 'text-white']);
                         button_choice.disabled = true;
                     }
                 });
-            })
+            });
 
-            return { 
-                container, 
+            return {
+                container,
                 element_question,
             };
         }
 
-        
         function refresh_multiple_translated_to_untranslated(is_review) {
             let result;
             let onload = () => {
