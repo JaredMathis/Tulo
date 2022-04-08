@@ -149,18 +149,7 @@ export default function tulo_main(parent) {
             function on_okay() {
                 result.onload();
             }
-            shows.forEach(s =>  element_hide(s))
-
-            let container_rosetta = element_add(parent, 'div')
-            element_html_inner(element_add(container_rosetta, 'div'), 'Here is a new word for you to learn: ');
-            let rosetta = component_rosetta(container_rosetta, _.last(words));
-            rosetta.translated.play();
-            element_on_click(element_button_primary(container_rosetta, 'Okay!'), () => {
-                element_hide(container_rosetta)
-                shows.forEach(s =>  element_show(s))
-                on_okay();
-
-            })
+            new_word(shows, on_okay);
         } else {
             result.onload();
         }
@@ -307,6 +296,21 @@ export default function tulo_main(parent) {
                 }
             });
         }
+    }
+
+    function new_word(shows, on_okay) {
+        shows.forEach(s => element_hide(s));
+
+        let container_rosetta = element_add(parent, 'div');
+        element_html_inner(element_add(container_rosetta, 'div'), 'Here is a new word for you to learn: ');
+        let rosetta = component_rosetta(container_rosetta, _.last(words));
+        rosetta.translated.play();
+        element_on_click(element_button_primary(container_rosetta, 'Okay!'), () => {
+            element_hide(container_rosetta);
+            shows.forEach(s => element_show(s));
+            on_okay();
+
+        });
     }
 
     function on_mistake(untranslateds) {
