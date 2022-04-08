@@ -56,7 +56,7 @@ export default function tulo_main(parent) {
         
         question_index++;
 
-        let label = 'Question: ' + question_index + (' / ' + question_count_max) + '; words: ' + word_count;
+        let label = 'Question: ' + question_index + (is_review ? '' : ' / ' + question_count_max) + '; words: ' + word_count;
         element_html_inner(element_add(parent, 'div'), label)
 
         if (answers.length === 0) {
