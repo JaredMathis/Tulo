@@ -54,6 +54,7 @@ export default function tulo_main(parent) {
         });
         element_on_click(element_button_primary(parent, 'Practice mistakes'), () => {
             mode = mode_practice_mistakes;
+            answers = answers_get();
             refresh();
         });
         let button_all = element_button_primary(parent, 'View all learned words');
@@ -95,10 +96,17 @@ export default function tulo_main(parent) {
         });
 
         let container_labels = element_add(parent, 'div');
+
         element_html_inner(element_add(container_labels, 'div'), 'Progress: You are on question: ' + question_index + '. ')
-        if (mode === mode_learn_new) {
-            element_html_inner(element_add(container_labels, 'div'), 'You will learn a new word after question ' + question_count_max + ". ")
+
+        if (mode === mode_practice_mistakes) {
+            element_html_inner(element_add(container_labels, 'div'), 'You have ' + mistakes.length + ' mistake(s) to practice.')
+        } else {
+            if (mode === mode_learn_new) {
+                element_html_inner(element_add(container_labels, 'div'), 'You will learn a new word after question ' + question_count_max + ". ")
+            }
         }
+
         element_html_inner(element_add(container_labels, 'div'), 'You have learned ' + word_count + ' word(s).')
         element_add(container_labels, 'hr')
         element_html_inner(element_add(container_labels, 'div'), 'Translate the following word:')
@@ -186,6 +194,7 @@ export default function tulo_main(parent) {
                     } else {
                         element_classes_add(element_choice.container, ['bg-danger', 'text-white']);
                         button_choice.disabled = true;
+                        on_mistake([answer, choice_english]);
                     }
                 });
             });
@@ -267,25 +276,23 @@ export default function tulo_main(parent) {
                     refresh();
                 } else {
                     button_yes.disabled = true;
-                    on_mistake();
                 }
             });
-
-            function on_mistake() {
-                mistakes.push(question_english)
-                mistakes.push(answer_english)
-            }
 
             let button_no = element_button_primary(container, 'No');
             element_on_click(button_no, () => {
                 if (answer_match) {
                     button_no.disabled = true;
-                    on_mistake();
                 } else {
                     refresh();
                 }
             });
         }
+    }
+
+    function on_mistake(untranslateds) {
+        untranslateds.forEach(u => mistakes.push(u))
+        console.log({mistakes})
     }
 
     function component_rosetta(parent, word) {
@@ -313,6 +320,7 @@ export default function tulo_main(parent) {
         if (shuffle) {
             answers = _.shuffle(answers)
         }
+        console.log({answers})
         return answers;
     }
 }
