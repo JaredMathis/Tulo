@@ -4,6 +4,7 @@ import {promises as fs} from 'fs'
 import path from 'path';
 import file_exists from '../js/file_exists.mjs';
 import directory_create_if_not_exists from '../js/directory_create_if_not_exists.mjs';
+import string_to_file_path from '../js/string_to_file_path.mjs';
 
 gcloud_auth_initialize()
 
@@ -35,18 +36,4 @@ export default async function gcloud_text_to_speech(text, languageCode, file_nam
   const writeFile = fs.writeFile;
   await writeFile(output_path, response.audioContent, 'binary');
   console.log('Audio content written to file: ' + output_path);
-}
-
-function string_to_file_path(s) {
-  return string_replace_all(s, '?', '_');
-}
-
-function string_remove_all(s, removal) {
-  return string_replace_all(s, removal, '');
-}
-
-function string_replace_all(s, from, to) {
-  let a = s.split(from);
-  let result = a.join(to);
-  return result;
 }
