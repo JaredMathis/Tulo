@@ -2,6 +2,7 @@
 import element_add from '../element/add.mjs';
 import element_classes_add from '../element/classes_add.mjs';
 import element_html_inner from '../element/html_inner.mjs';
+import element_icon from '../element/icon.mjs';
 import element_on_click from '../element/on_click.mjs';
 import translations from '../languages/ceb/translations.json' assert { type: 'json' };
 import tulo_audio from './audio.mjs';
@@ -11,6 +12,9 @@ export default function phrase_translated(parent, untranslated) {
 
     let left = element_add(container, 'span');
     element_html_inner(left, 'Cebuano: ');  
+
+    let button_play = element_icon(container, 'volume-up-fill');
+    element_html_inner(element_add(container, 'span'), ' ');  
     
     let right = element_add(container, 'b')
     let translated = translations[untranslated];
