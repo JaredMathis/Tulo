@@ -90,7 +90,7 @@ export default function tulo_main(parent) {
         
         question_index++;
 
-        const go_home = () => {
+        let go_home = () => {
             question_index--;
             component_home();
         };
