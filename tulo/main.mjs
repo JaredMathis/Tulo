@@ -34,6 +34,9 @@ export default function tulo_main(parent) {
     component_home();
 
     function component_home() {
+        // clear
+        element_html_inner(parent, '');
+        
         element_on_click(element_button_primary(parent, 'Start'), refresh);
     }
 
