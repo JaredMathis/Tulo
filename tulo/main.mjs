@@ -18,7 +18,7 @@ function js_random_integer(max) {
 export default function tulo_main(parent) {
     let word_count = 18;
     let round_count_max = 12;
-    let round_count = 0;
+    let question_index = 0;
     let skip_word_if = word => {
         return translations[word][0].toLowerCase() === word.toLowerCase()
     }
@@ -41,16 +41,16 @@ export default function tulo_main(parent) {
         element_html_inner(parent, '');
 
         let round_new = false;
-        if (!is_review && round_count === round_count_max) {
-            round_count = 1;
+        if (!is_review && question_index === round_count_max) {
+            question_index = 1;
             word_count++;
             words = words_get();
             round_new = true;
         } else {
-            round_count++;
+            question_index++;
         }
 
-        let label = 'Question: ' + round_count + ' / ' + round_count_max + '; words: ' + word_count;
+        let label = 'Question: ' + question_index + ' / ' + round_count_max + '; words: ' + word_count;
         element_html_inner(element_add(parent, 'div'), label)
 
         // These are the words we're working on right now
