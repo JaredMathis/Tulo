@@ -23,7 +23,7 @@ function translate(word) {
 export default function tulo_main(parent) {
     let word_count = 34;
     word_count--;
-    let question_count_max = 5;
+    let question_count_max = 15;
     let sleep_wait_ms = 0;
     let question_index = question_count_max;
     let skip_word_if = word => {
@@ -50,10 +50,12 @@ export default function tulo_main(parent) {
 
         element_on_click(element_button_primary(element_add(parent, 'div'), 'Learn new words'), () => {
             mode = mode_learn_new;
+            answers = answers_get();
             refresh();
         });
         element_on_click(element_button_primary(element_add(parent, 'div'), 'Review existing words'), () => {
             mode = mode_review_existing;
+            answers = answers_get();
             refresh();
         });
         element_on_click(element_button_primary(element_add(parent, 'div'), 'Practice mistakes'), () => {
