@@ -16,14 +16,15 @@ function js_random_integer(max) {
 }
 
 export default function tulo_main(parent) {
-    let word_count = 18;
-    let question_count_max = 12;
-    let question_index = 0;
+    let word_count = 19;
+    word_count--;
+    let question_count_max = 15;
+    let question_index = question_count_max;
     let skip_word_if = word => {
         return translations[word][0].toLowerCase() === word.toLowerCase()
     }
     let choice_count = 4;
-    let answers_from_previous = 4;
+    let answers_from_previous = 5;
     let words = words_get();
 
     let is_review = true;
@@ -140,9 +141,9 @@ export default function tulo_main(parent) {
 
                 let choice_translated = translations[choice_english];
 
-                let choice_match = question_translated[0] === choice_translated[0];
                 // console.log({question_english,question_translated,choice_english,choice_translated})
                 element_on_click(button_choice, () => {
+                    let choice_match = question_translated[0] === choice_translated[0];
                     if (choice_match) {
                         let elements = [
                             element_choice,
