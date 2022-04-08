@@ -38,7 +38,7 @@ export default function tulo_main(parent) {
         // clear
         element_html_inner(parent, '');
 
-        element_on_click(element_button_primary(parent, 'Learn'), () => {
+        element_on_click(element_button_primary(parent, 'Learn new words'), () => {
             is_review = false
             refresh();
         });
