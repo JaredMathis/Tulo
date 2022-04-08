@@ -47,6 +47,7 @@ export default function tulo_main(parent) {
         element_on_click(element_button_primary(element_add(parent, 'div'), 'Learn new words'), () => {
             let tutorial_word_count = 5;
             if (word_count <= tutorial_word_count) {
+                word_count = tutorial_word_count;
                 // tutorial
             } else {
                 word_count--;
@@ -152,8 +153,11 @@ export default function tulo_main(parent) {
             rosetta.translated.play();
             element_on_click(element_button_primary(container_rosetta, 'Okay!'), () => {
                 element_hide(container_rosetta)
-                element_show(container)
-                element_show(container_labels);
+                let shows = [
+                    container,
+                    container_labels,
+                ]
+                shows.forEach(s =>  element_show(s))
                 result.onload();
             })
         } else {
