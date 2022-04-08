@@ -113,7 +113,7 @@ export default function tulo_main(parent) {
             let choices_english = words_without_answer.slice(0, choice_count - 1).concat(answer);
             choices_english = _.shuffle(choices_english);
 
-            console.log({choices_english, answer: answer, answers})
+            console.log({choices_english, answer, answers})
 
             let question_translated = translations[answer];
 
