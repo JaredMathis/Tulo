@@ -146,10 +146,7 @@ export default function tulo_main(parent) {
                 container,
                 container_labels,
             ]
-            
-            element_hide(container_labels);
-            element_hide(container)
-
+            shows.forEach(s =>  element_hide(s))
 
             let container_rosetta = element_add(parent, 'div')
             element_html_inner(element_add(container_rosetta, 'div'), 'Here is a new word for you to learn: ');
