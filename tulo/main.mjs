@@ -45,6 +45,14 @@ export default function tulo_main(parent) {
             is_review = true
             refresh();
         });
+        let button_all = element_button_primary(parent, 'View All Words');
+        element_on_click(button_all, () => {
+            words.forEach(word => {
+                element_add(parent, 'hr')
+
+                component_rosetta(parent, word);
+            })
+        })
     }
 
     function words_get() {
@@ -109,23 +117,6 @@ export default function tulo_main(parent) {
             result.onload();
         }
 
-        let button_all = element_button_primary(parent, 'all');
-        element_on_click(button_all, () => {
-            words.forEach(word => {
-                element_add(parent, 'hr')
-
-                component_rosetta(parent, word);
-            })
-        })
-
-        function component_rosetta(parent, word) {
-            let untranslated = phrase_untranslated(element_add(parent, 'div'), word);
-            let translated = phrase_translated(element_add(parent, 'div'), word);
-            return {
-                untranslated,
-                translated,
-            }
-        }
         
         function refresh_multiple_generic(answer, on_success, question_phrase, choice_phrase) {
             let container = element_add(parent, 'div');
@@ -256,6 +247,15 @@ export default function tulo_main(parent) {
                     refresh();
                 }
             });
+        }
+    }
+
+    function component_rosetta(parent, word) {
+        let untranslated = phrase_untranslated(element_add(parent, 'div'), word);
+        let translated = phrase_translated(element_add(parent, 'div'), word);
+        return {
+            untranslated,
+            translated,
         }
     }
 
