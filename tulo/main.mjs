@@ -147,16 +147,17 @@ export default function tulo_main(parent) {
         if (mode === mode_learn_new && round_new) {
             element_hide(container)
 
+            let shows = [
+                container,
+                container_labels,
+            ]
+            
             let container_rosetta = element_add(parent, 'div')
             element_html_inner(element_add(container_rosetta, 'div'), 'Here is a new word for you to learn: ');
             let rosetta = component_rosetta(container_rosetta, _.last(words));
             rosetta.translated.play();
             element_on_click(element_button_primary(container_rosetta, 'Okay!'), () => {
                 element_hide(container_rosetta)
-                let shows = [
-                    container,
-                    container_labels,
-                ]
                 shows.forEach(s =>  element_show(s))
                 result.onload();
             })
