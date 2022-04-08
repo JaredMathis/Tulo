@@ -120,6 +120,7 @@ export default function tulo_main(parent) {
             element_on_click(element_button_primary(container_rosetta, 'Okay!'), () => {
                 element_hide(container_rosetta)
                 element_show(container)
+                element_show(container_labels);
                 result.onload();
             })
         } else {
