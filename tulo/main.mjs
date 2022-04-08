@@ -167,7 +167,7 @@ export default function tulo_main(parent) {
 
             console.log({ choices_english });
 
-            let question_translated = translations[answer];
+            let question_translated = translations[answer][0];
 
             let element_question = question_phrase(element_add(container, 'div'), answer);
 
@@ -187,10 +187,10 @@ export default function tulo_main(parent) {
 
                 // console.log({question_english,question_translated,choice_english,choice_translated})
                 element_on_click(button_choice, () => {
-                    let choice_match = question_translated[0] === choice_translated[0];
+                    let choice_match = question_translated === choice_translated[0];
                     if (choice_match) {
                         let elements = choices
-                            .filter(c => c.choice_translated[0] === question_translated[0])
+                            .filter(c => c.choice_translated[0] === question_translated)
                             .map(c => c.element_choice);
                         elements.push(
                             element_question);
