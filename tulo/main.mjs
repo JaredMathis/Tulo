@@ -55,12 +55,7 @@ export default function tulo_main(parent) {
         element_html_inner(element_add(parent, 'div'), label)
 
         // These are the words we're working on right now
-        let answers;
-        if (is_review) {
-            answers = words;
-        } else {
-            answers = words.slice(word_count - answers_from_previous, word_count);
-        }
+        let answers = answers_get();
         let answer = answers[js_random_integer(answers.length)];
 
         console.log({answer, answers})
@@ -237,5 +232,15 @@ export default function tulo_main(parent) {
                 }
             });
         }
+    }
+
+    function answers_get() {
+        let answers;
+        if (is_review) {
+            answers = words;
+        } else {
+            answers = words.slice(word_count - answers_from_previous, word_count);
+        }
+        return answers;
     }
 }
