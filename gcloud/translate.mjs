@@ -51,7 +51,7 @@ async function saveTranslations() {
     await fs.writeFile(path_translations, JSON.stringify(translations, null, 2));
 }
 
-translations = json_read(path_translations);
+translations = await json_read(path_translations);
 
 let words = [
     'I',
