@@ -52,7 +52,7 @@ export default function tulo_main(parent) {
             words = words_get();
             
             // These are the words we're working on right now
-            let answers = answers_get();
+            answers = answers_get();
 
             round_new = true;            
         }
