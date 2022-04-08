@@ -48,7 +48,13 @@ export default function tulo_main(parent) {
             let tutorial_word_count = 5;
             if (word_count <= tutorial_word_count) {
                 word_count = tutorial_word_count;
+                
+                // clear
+                element_html_inner(parent, '');
+
                 // tutorial
+                new_word_prompt(words[0], [], _.noop);
+
             } else {
                 word_count--;
                 question_index = question_count_max;
