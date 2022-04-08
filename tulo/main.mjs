@@ -26,10 +26,10 @@ export default function tulo_main(parent) {
     let answers_from_previous = 4;
     let words = words_get();
 
+    let is_review = true;
+
     // These are the words we're working on right now
     let answers = answers_get();
-
-    let is_review = true;
 
     element_on_click(element_button_primary(parent, 'Start'), refresh);
 
@@ -62,7 +62,7 @@ export default function tulo_main(parent) {
         let label = 'Question: ' + question_index + ' / ' + question_count_max + '; words: ' + word_count;
         element_html_inner(element_add(parent, 'div'), label)
 
-        let answer = answers[js_random_integer(answers.length)];
+        let answer = answers.pop();
 
         console.log({answer, answers})
 
