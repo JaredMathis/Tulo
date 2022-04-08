@@ -63,7 +63,7 @@ words = words.concat(top100).concat(simple1);
 
 for (let w of words) {
     if (translations.hasOwnProperty(w)) {
-        console.log('Skipping w');
+        console.log('Skipping ' + w);
         continue;
     }
     let translateds = await translate(targetLanguageCode, w)
