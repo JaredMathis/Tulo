@@ -116,7 +116,10 @@ export default function tulo_main(parent) {
         }
 
         if (answers.length === 0) {
-
+            if (mode === mode_practice_mistakes) {
+                go_home();
+                return;
+            }
             answers = answers_get();
         }
         let answer = answers.pop();
