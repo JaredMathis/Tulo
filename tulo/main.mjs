@@ -96,7 +96,6 @@ export default function tulo_main(parent) {
 
         function refresh_multiple_generic(
             is_review, on_success, question_phrase, choice_phrase) {
-            let container = element_add(parent, 'div');
 
             // These are the words we're working on right now
             let answers;
@@ -107,6 +106,8 @@ export default function tulo_main(parent) {
             }
             let answer = answers[js_random_integer(answers.length)];
 
+            let container = element_add(parent, 'div');
+            
             let words_without_answer = _.without(words, answer);
             words_without_answer = _.shuffle(words_without_answer);
 
