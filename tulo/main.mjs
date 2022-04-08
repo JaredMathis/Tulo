@@ -21,9 +21,9 @@ function translate(word) {
 }
 
 export default function tulo_main(parent) {
-    let word_count = 29;
+    let word_count = 34;
     word_count--;
-    let question_count_max = 15;
+    let question_count_max = 5;
     let sleep_wait_ms = 0;
     let question_index = question_count_max;
     let skip_word_if = word => {
@@ -92,7 +92,9 @@ export default function tulo_main(parent) {
             round_new = true;            
         }
         
-        question_index++;
+        if (mode !== mode_practice_mistakes) {
+            question_index++;
+        }
 
         let go_home = () => {
             question_index--;
