@@ -37,7 +37,9 @@ export default function tulo_main(parent) {
         // clear
         element_html_inner(parent, '');
 
-        element_on_click(element_button_primary(parent, 'Start'), refresh);
+        element_on_click(element_button_primary(parent, 'Review'), () => {
+            refresh();
+        });
     }
 
     function words_get() {
