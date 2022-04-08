@@ -16,7 +16,7 @@ function js_random_integer(max) {
 }
 
 export default function tulo_main(parent) {
-    let word_count = 19;
+    let word_count = 20;
     word_count--;
     let question_count_max = 15;
     let question_index = question_count_max;
@@ -134,6 +134,7 @@ export default function tulo_main(parent) {
 
             let element_question = question_phrase(element_add(container, 'div'), answer);
 
+            let choices = [];
             choices_english.forEach(choice_english => {
                 let container_choice = element_add(container, 'div');
                 let button_choice = element_button_primary(container_choice, 'Choose');
@@ -141,14 +142,21 @@ export default function tulo_main(parent) {
 
                 let choice_translated = translations[choice_english];
 
+                choices.push({
+                    element_choice,
+                    choice_english,
+                    choice_translated,
+                })
+
                 // console.log({question_english,question_translated,choice_english,choice_translated})
                 element_on_click(button_choice, () => {
                     let choice_match = question_translated[0] === choice_translated[0];
                     if (choice_match) {
-                        let elements = [
-                            element_choice,
-                            element_question,
-                        ];
+                        let elements = choices
+                            .filter(c => c.choice_translated[0] === question_translated[0])
+                            .map(c => c.element_choice);
+                        elements.push(
+                            element_question);
                         elements.forEach(e => {
                             element_classes_add(e.container, ['bg-success', 'text-white']);
                         });
@@ -254,6 +262,9 @@ export default function tulo_main(parent) {
     function component_rosetta(parent, word) {
         let untranslated = phrase_untranslated(element_add(parent, 'div'), word);
         let translated = phrase_translated(element_add(parent, 'div'), word);
+        [untranslated,translated]
+            .forEach(e => element_classes_add(e.container, ['bg-success', 'text-white']))
+        e;
         return {
             untranslated,
             translated,
