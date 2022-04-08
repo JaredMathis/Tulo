@@ -298,8 +298,8 @@ export default function tulo_main(parent) {
         }
     }
 
-    function new_word(shows, on_okay) {
-        shows.forEach(s => element_hide(s));
+    function new_word(hides, on_okay) {
+        hides.forEach(s => element_hide(s));
 
         let container_rosetta = element_add(parent, 'div');
         element_html_inner(element_add(container_rosetta, 'div'), 'Here is a new word for you to learn: ');
@@ -307,7 +307,7 @@ export default function tulo_main(parent) {
         rosetta.translated.play();
         element_on_click(element_button_primary(container_rosetta, 'Okay!'), () => {
             element_hide(container_rosetta);
-            shows.forEach(s => element_show(s));
+            hides.forEach(s => element_show(s));
             on_okay();
 
         });
