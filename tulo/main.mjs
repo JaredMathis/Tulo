@@ -50,7 +50,7 @@ export default function tulo_main(parent) {
             round_count++;
         }
 
-        let label = 'Round: ' + round_count + ' / ' + round_count_max + '; words: ' + word_count;
+        let label = 'Question: ' + round_count + ' / ' + round_count_max + '; words: ' + word_count;
         element_html_inner(element_add(parent, 'div'), label)
 
         // These are the words we're working on right now
