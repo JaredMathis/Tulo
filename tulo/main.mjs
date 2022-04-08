@@ -110,10 +110,9 @@ export default function tulo_main(parent) {
 
         if (mode === mode_practice_mistakes) {
             element_html_inner(element_add(container_labels, 'div'), 'You have ' + mistakes.length + ' mistake(s) to practice.')
-        } else {
-            if (mode === mode_learn_new) {
-                element_html_inner(element_add(container_labels, 'div'), 'You will learn a new word after question ' + question_count_max + ". ")
-            }
+        }
+        if (mode === mode_learn_new) {
+            element_html_inner(element_add(container_labels, 'div'), 'You will learn a new word after question ' + question_count_max + ". ")
         }
 
         element_html_inner(element_add(container_labels, 'div'), 'You have learned ' + word_count + ' word(s).')
