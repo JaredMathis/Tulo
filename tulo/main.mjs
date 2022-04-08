@@ -10,6 +10,7 @@ import translations from '../languages/ceb/translations.json' assert { type: 'js
 import element_hide from '../element/hide.mjs';
 import element_show from '../element/show.mjs';
 import element_classes_add from '../element/classes_add.mjs';
+import js_sleep from '../js/sleep.mjs';
 
 function js_random_integer(max) {
     return Math.floor(Math.random() * max)
@@ -19,6 +20,7 @@ export default function tulo_main(parent) {
     let word_count = 24;
     word_count--;
     let question_count_max = 15;
+    let sleep_wait_ms = 0;
     let question_index = question_count_max;
     let skip_word_if = word => {
         return translations[word][0].toLowerCase() === word.toLowerCase()
@@ -90,6 +92,7 @@ export default function tulo_main(parent) {
             element_html_inner(element_add(container_labels, 'div'), 'You will learn a new word after question ' + question_count_max + ". ")
         }
         element_html_inner(element_add(container_labels, 'div'), 'You have learned ' + word_count + ' word(s).')
+        element_add(container_labels, 'hr')
         element_html_inner(element_add(container_labels, 'div'), 'Translate the following word:')
         if (round_new) {
             element_hide(container_labels);
@@ -193,7 +196,8 @@ export default function tulo_main(parent) {
             result = refresh_multiple_generic(
                 answer,
                 (choice_element, question_element) => {
-                    question_element.audio.addEventListener('ended', () => {
+                    question_element.audio.addEventListener('ended', async () => {
+                        await js_sleep(sleep_wait_ms)
                         refresh();
                     })
                     question_element.play();
@@ -210,7 +214,8 @@ export default function tulo_main(parent) {
             let result = refresh_multiple_generic(
                 answer,
                 (choice_element) => {
-                    choice_element.audio.addEventListener('ended', () => {
+                    choice_element.audio.addEventListener('ended', async () => {
+                        await js_sleep(sleep_wait_ms);
                         refresh();
                     })
                     choice_element.play();
