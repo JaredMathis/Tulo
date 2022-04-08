@@ -85,7 +85,8 @@ export default function tulo_main(parent) {
         });
 
         element_html_inner(element_add(parent, 'div'), 'Progress: You are on question: ' + question_index + '. ')
-        element_html_inner(element_add(parent, 'div'), (is_review ? '' : 'You will learn a new word after question ' + question_count_max + ". ") + ' You have learned ' + word_count + ' word(s).')
+        element_html_inner(element_add(parent, 'div'), (is_review ? '' : 'You will learn a new word after question ' + question_count_max + ". "))
+        element_html_inner(element_add(parent, 'div'), 'You have learned ' + word_count + ' word(s).')
 
         if (answers.length === 0) {
             answers = answers_get();
