@@ -16,6 +16,10 @@ function js_random_integer(max) {
     return Math.floor(Math.random() * max)
 }
 
+function translate(word) {
+    return translations[word][0].toLowerCase();
+}
+
 export default function tulo_main(parent) {
     let word_count = 29;
     word_count--;
@@ -23,7 +27,7 @@ export default function tulo_main(parent) {
     let sleep_wait_ms = 0;
     let question_index = question_count_max;
     let skip_word_if = word => {
-        return translations[word][0].toLowerCase() === word.toLowerCase()
+        return translate(word) === word.toLowerCase()
     }
     let choice_count = 4;
     let answers_from_previous = 5;
