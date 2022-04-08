@@ -16,7 +16,7 @@ function js_random_integer(max) {
     return Math.floor(Math.random() * max)
 }
 
-function translate(word) {
+function tulo_translate(word) {
     return translations[word][0].toLowerCase();
 }
 
@@ -27,7 +27,7 @@ export default function tulo_main(parent) {
     let sleep_wait_ms = 0;
     let question_index = question_count_max;
     let skip_word_if = word => {
-        return translate(word) === word.toLowerCase()
+        return tulo_translate(word) === word.toLowerCase()
     }
     let choice_count = 4;
     let answers_from_previous = 5;
@@ -169,7 +169,7 @@ export default function tulo_main(parent) {
 
             console.log({ choices_english });
 
-            let question_translated = translate(answer);
+            let question_translated = tulo_translate(answer);
 
             let element_question = question_phrase(element_add(container, 'div'), answer);
 
@@ -179,7 +179,7 @@ export default function tulo_main(parent) {
                 let button_choice = element_button_primary(container_choice, 'Choose');
                 let element_choice = choice_phrase(container_choice, choice_english);
 
-                let choice_translated = translate(choice_english);
+                let choice_translated = tulo_translate(choice_english);
 
                 choices.push({
                     element_choice,
@@ -276,8 +276,8 @@ export default function tulo_main(parent) {
             let translated = phrase_translated(element_add(container, 'div'), answer_english);
             translated.play();
 
-            let question_translated = translate(question_english);
-            let answer_translated = translate(answer_english);
+            let question_translated = tulo_translate(question_english);
+            let answer_translated = tulo_translate(answer_english);
 
             let answer_match = question_translated === answer_translated;
 
