@@ -247,6 +247,7 @@ export default function tulo_main(parent) {
         } else {
             answers = words.slice(word_count - answers_from_previous, word_count);
         }
+        answers = _.shuffle(answers)
         return answers;
     }
 }
