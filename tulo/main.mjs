@@ -50,18 +50,18 @@ export default function tulo_main(parent) {
             question_index = 0;
             word_count++;
             words = words_get();
-            
-            // These are the words we're working on right now
             answers = answers_get();
-
             round_new = true;            
         }
         
         question_index++;
 
-        let label = 'Question: ' + question_index + ' / ' + question_count_max + '; words: ' + word_count;
+        let label = 'Question: ' + question_index + (' / ' + question_count_max) + '; words: ' + word_count;
         element_html_inner(element_add(parent, 'div'), label)
 
+        if (answers.length === 0) {
+            answers = answers_get();
+        }
         let answer = answers.pop();
 
         console.log({answer, answers})
