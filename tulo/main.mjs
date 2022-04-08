@@ -16,7 +16,7 @@ function js_random_integer(max) {
 }
 
 export default function tulo_main(parent) {
-    let word_count = 20;
+    let word_count = 24;
     word_count--;
     let question_count_max = 15;
     let question_index = question_count_max;
@@ -84,7 +84,7 @@ export default function tulo_main(parent) {
             component_home();
         });
 
-        let label = 'Question: ' + question_index + (is_review ? '' : ' / ' + question_count_max) + '; words: ' + word_count;
+        let label = 'Progress: Question: ' + question_index + (is_review ? '' : ' / ' + question_count_max) + '; words: ' + word_count;
         element_html_inner(element_add(parent, 'div'), label)
 
         if (answers.length === 0) {
