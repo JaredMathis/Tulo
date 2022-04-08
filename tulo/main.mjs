@@ -149,7 +149,8 @@ export default function tulo_main(parent) {
             function on_okay() {
                 result.onload();
             }
-            new_word_prompt(hides, on_okay);
+            let new_word = _.last(words);
+            new_word_prompt(new_word, hides, on_okay);
         } else {
             result.onload();
         }
@@ -298,12 +299,11 @@ export default function tulo_main(parent) {
         }
     }
 
-    function new_word_prompt(hides, on_okay) {
+    function new_word_prompt(new_word, hides, on_okay) {
         hides.forEach(s => element_hide(s));
 
         let container_rosetta = element_add(parent, 'div');
         element_html_inner(element_add(container_rosetta, 'div'), 'Here is a new word for you to learn: ');
-        const new_word = _.last(words);
         let rosetta = component_rosetta(container_rosetta, new_word);
         rosetta.translated.play();
         element_on_click(element_button_primary(container_rosetta, 'Okay!'), () => {
