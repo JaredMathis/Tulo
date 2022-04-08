@@ -42,11 +42,11 @@ export default function tulo_main(parent) {
             is_review = false
             refresh();
         });
-        element_on_click(element_button_primary(parent, 'Review'), () => {
+        element_on_click(element_button_primary(parent, 'Review existing words'), () => {
             is_review = true
             refresh();
         });
-        let button_all = element_button_primary(parent, 'View All Words');
+        let button_all = element_button_primary(parent, 'View all learned words');
         element_on_click(button_all, () => {
             words.forEach(word => {
                 element_add(parent, 'hr')
