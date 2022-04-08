@@ -6,18 +6,14 @@ import _ from '../external/lodash.mjs'
 import phrase_untranslated from './phrase_untranslated.mjs';
 import phrase_translated from './phrase_translated.mjs';
 import element_on_click from '../element/on_click.mjs';
-import translations from '../languages/ceb/translations.json' assert { type: 'json' };
 import element_hide from '../element/hide.mjs';
 import element_show from '../element/show.mjs';
 import element_classes_add from '../element/classes_add.mjs';
 import js_sleep from '../js/sleep.mjs';
+import tulo_translate from './translate.mjs';
 
 function js_random_integer(max) {
     return Math.floor(Math.random() * max)
-}
-
-function tulo_translate(word) {
-    return translations[word][0].toLowerCase();
 }
 
 export default function tulo_main(parent) {
