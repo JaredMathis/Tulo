@@ -177,7 +177,7 @@ export default function tulo_main(parent) {
                 let button_choice = element_button_primary(container_choice, 'Choose');
                 let element_choice = choice_phrase(container_choice, choice_english);
 
-                let choice_translated = translations[choice_english];
+                let choice_translated = translate(choice_english);
 
                 choices.push({
                     element_choice,
