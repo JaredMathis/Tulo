@@ -28,8 +28,12 @@ export default function tulo_main(parent) {
     let choice_count = 4;
     let answers_from_previous = 5;
     let words = words_get();
+    let mistakes = [];
 
     let is_review = true;
+    let mode_review = 'mode_review';
+    let mode_learn = 'mode_learn';
+    let mode_mistakes = 'mode_mistakes';
 
     // These are the words we're working on right now
     let answers = answers_get();
@@ -259,13 +263,20 @@ export default function tulo_main(parent) {
                     refresh();
                 } else {
                     button_yes.disabled = true;
+                    on_mistake();
                 }
             });
+
+            function on_mistake() {
+                mistakes.push(question_english)
+                mistakes.push(answer_english)
+            }
 
             let button_no = element_button_primary(container, 'No');
             element_on_click(button_no, () => {
                 if (answer_match) {
                     button_no.disabled = true;
+                    on_mistake();
                 } else {
                     refresh();
                 }
