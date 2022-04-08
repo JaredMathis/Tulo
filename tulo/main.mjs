@@ -21,7 +21,7 @@ function translate(word) {
 }
 
 export default function tulo_main(parent) {
-    let word_count = 34;
+    let word_count = 35;
     word_count--;
     let question_count_max = 15;
     let sleep_wait_ms = 0;
@@ -278,8 +278,8 @@ export default function tulo_main(parent) {
             let translated = phrase_translated(element_add(container, 'div'), answer_english);
             translated.play();
 
-            let question_translated = translations[question_english];
-            let answer_translated = translations[answer_english];
+            let question_translated = translate(question_english);
+            let answer_translated = translate(answer_english);
 
             let answer_match = question_translated === answer_translated;
 
