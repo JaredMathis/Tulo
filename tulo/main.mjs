@@ -106,13 +106,13 @@ export default function tulo_main(parent) {
 
         let container_labels = element_add(parent, 'div');
 
+        if (mode === mode_practice_mistakes) {
+            element_html_inner(element_add(container_labels, 'div'), 'You have ' + mistakes.length + ' mistake(s) to practice.')
+        }
         if (mode === mode_learn_new) {
             element_html_inner(element_add(container_labels, 'div'), 'Progress: You are on question: ' + question_index + '. ')
         }
 
-        if (mode === mode_practice_mistakes) {
-            element_html_inner(element_add(container_labels, 'div'), 'You have ' + mistakes.length + ' mistake(s) to practice.')
-        }
         if (mode === mode_learn_new) {
             element_html_inner(element_add(container_labels, 'div'), 'You will learn a new word after question ' + question_count_max + ". ")
         }
