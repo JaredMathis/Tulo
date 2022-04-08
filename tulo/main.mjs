@@ -17,9 +17,9 @@ function js_random_integer(max) {
 }
 
 export default function tulo_main(parent) {
-    let word_count = 38;
-    word_count--;
+    let word_count = 39;
     let question_count_max = 15;
+    // question_count_max = 1
     let sleep_wait_ms = 0;
     let question_index;
     let skip_word_if = word => {
