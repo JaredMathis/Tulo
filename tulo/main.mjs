@@ -48,9 +48,8 @@ export default function tulo_main(parent) {
             words = words_get();
             round_new = true;            
         }
-            
-        question_index++;
         
+        question_index++;
 
         let label = 'Question: ' + question_index + ' / ' + question_count_max + '; words: ' + word_count;
         element_html_inner(element_add(parent, 'div'), label)
