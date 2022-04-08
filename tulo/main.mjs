@@ -106,6 +106,8 @@ export default function tulo_main(parent) {
             }
             let answer = answers[js_random_integer(answers.length)];
 
+            console.log({answer, answers})
+
             let container = element_add(parent, 'div');
             
             let words_without_answer = _.without(words, answer);
@@ -114,7 +116,7 @@ export default function tulo_main(parent) {
             let choices_english = words_without_answer.slice(0, choice_count - 1).concat(answer);
             choices_english = _.shuffle(choices_english);
 
-            console.log({choices_english, answer, answers})
+            console.log({choices_english})
 
             let question_translated = translations[answer];
 
