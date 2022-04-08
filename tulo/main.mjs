@@ -121,8 +121,6 @@ export default function tulo_main(parent) {
         element_html_inner(element_add(container_labels, 'div'), 'You have learned ' + word_count + ' word(s).')
         element_add(container_labels, 'hr')
         element_html_inner(element_add(container_labels, 'div'), 'Translate the following word:')
-        if (round_new) {
-        }
 
         if (answers.length === 0) {
             if (mode === mode_practice_mistakes) {
