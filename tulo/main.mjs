@@ -142,14 +142,14 @@ export default function tulo_main(parent) {
         let { container } = result;
 
         if (mode === mode_learn_new && round_new) {
-            let shows = [
+            let hides = [
                 container,
                 container_labels,
             ]
             function on_okay() {
                 result.onload();
             }
-            new_word(shows, on_okay);
+            new_word(hides, on_okay);
         } else {
             result.onload();
         }
