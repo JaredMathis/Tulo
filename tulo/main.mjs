@@ -21,7 +21,7 @@ function translate(word) {
 }
 
 export default function tulo_main(parent) {
-    let word_count = 35;
+    let word_count = 37;
     word_count--;
     let question_count_max = 15;
     let sleep_wait_ms = 0;
@@ -86,7 +86,7 @@ export default function tulo_main(parent) {
 
         let round_new = false;
 
-        if (mode === mode_learn_new && question_index === question_count_max) {
+        if (mode === mode_learn_new && (question_index === 0 || question_index === question_count_max)) {
             question_index = 0;
             word_count++;
             words = words_get();
@@ -94,7 +94,7 @@ export default function tulo_main(parent) {
             round_new = true;            
         }
         
-        if (mode !== mode_practice_mistakes) {
+        if (mode === mode_learn_new) {
             question_index++;
         }
 
