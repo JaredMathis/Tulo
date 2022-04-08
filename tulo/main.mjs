@@ -106,7 +106,9 @@ export default function tulo_main(parent) {
 
         let container_labels = element_add(parent, 'div');
 
-        element_html_inner(element_add(container_labels, 'div'), 'Progress: You are on question: ' + question_index + '. ')
+        if (mode === mode_learn_new) {
+            element_html_inner(element_add(container_labels, 'div'), 'Progress: You are on question: ' + question_index + '. ')
+        }
 
         if (mode === mode_practice_mistakes) {
             element_html_inner(element_add(container_labels, 'div'), 'You have ' + mistakes.length + ' mistake(s) to practice.')
