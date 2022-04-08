@@ -31,7 +31,11 @@ export default function tulo_main(parent) {
     // These are the words we're working on right now
     let answers = answers_get();
 
-    element_on_click(element_button_primary(parent, 'Start'), refresh);
+    component_home();
+
+    function component_home() {
+        element_on_click(element_button_primary(parent, 'Start'), refresh);
+    }
 
     function words_get() {
         let filtered = top100.filter(w => !skip_word_if(w));
@@ -55,6 +59,10 @@ export default function tulo_main(parent) {
         }
         
         question_index++;
+
+        element_on_click(element_button_primary('Home'), () => {
+
+        });
 
         let label = 'Question: ' + question_index + (is_review ? '' : ' / ' + question_count_max) + '; words: ' + word_count;
         element_html_inner(element_add(parent, 'div'), label)
