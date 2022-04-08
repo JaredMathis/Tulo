@@ -6,6 +6,7 @@ import element_icon from '../element/icon.mjs';
 import element_on_click from '../element/on_click.mjs';
 import translations from '../languages/ceb/translations.json' assert { type: 'json' };
 import tulo_audio from './audio.mjs';
+import tulo_translate from './translate.mjs';
 
 export default function phrase_translated(parent, untranslated) {
     let container = element_add(parent, 'span');
@@ -18,7 +19,7 @@ export default function phrase_translated(parent, untranslated) {
     element_html_inner(element_add(container, 'span'), ' ');  
     
     let right = element_add(container, 'b')
-    let translated = translations[untranslated];
+    let translated = tulo_translate(untranslated);
     element_html_inner(right, translated);  
 
     let audio = tulo_audio(translated);
