@@ -309,7 +309,6 @@ export default function tulo_main(parent) {
             element_hide(container_rosetta);
             hides.forEach(s => element_show(s));
             on_okay();
-
         });
     }
 
