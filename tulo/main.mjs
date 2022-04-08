@@ -45,7 +45,8 @@ export default function tulo_main(parent) {
         element_html_inner(parent, '');
 
         element_on_click(element_button_primary(element_add(parent, 'div'), 'Learn new words'), () => {
-            if (word_count <= 5) {
+            let tutorial_word_count = 5;
+            if (word_count <= tutorial_word_count) {
                 // tutorial
             } else {
                 word_count--;
