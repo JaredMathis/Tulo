@@ -79,7 +79,7 @@ export default function tulo_main(parent) {
         
         question_index++;
 
-        element_on_click(element_button_primary(parent, 'Home'), () => {
+        element_on_click(element_button_primary(parent, 'Go back home'), () => {
             question_index--;
             component_home();
         });
