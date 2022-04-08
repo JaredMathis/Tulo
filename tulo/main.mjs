@@ -321,7 +321,7 @@ export default function tulo_main(parent) {
         if (mode === mode_review_existing) {
             answers = words;
         } else if (mode === mode_learn_new) {
-            answers = words.slice(word_count - answers_from_previous, word_count);
+            answers = last_n(words, word_count, answers_from_previous);
         } else if (mode === mode_practice_mistakes) {
             answers = mistakes;
             shuffle = false;
