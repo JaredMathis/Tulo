@@ -41,14 +41,16 @@ export default function tulo_main(parent) {
         element_html_inner(parent, '');
 
         let round_new = false;
+
         if (!is_review && question_index === question_count_max) {
-            question_index = 1;
+            question_index = 0;
             word_count++;
             words = words_get();
-            round_new = true;
-        } else {
-            question_index++;
+            round_new = true;            
         }
+            
+        question_index++;
+        
 
         let label = 'Question: ' + question_index + ' / ' + question_count_max + '; words: ' + word_count;
         element_html_inner(element_add(parent, 'div'), label)
