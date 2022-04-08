@@ -36,7 +36,7 @@ export default function tulo_main(parent) {
     function component_home() {
         // clear
         element_html_inner(parent, '');
-        
+
         element_on_click(element_button_primary(parent, 'Start'), refresh);
     }
 
@@ -63,8 +63,9 @@ export default function tulo_main(parent) {
         
         question_index++;
 
-        element_on_click(element_button_primary('Home'), () => {
-
+        element_on_click(element_button_primary(parent, 'Home'), () => {
+            question_index--;
+            component_home();
         });
 
         let label = 'Question: ' + question_index + (is_review ? '' : ' / ' + question_count_max) + '; words: ' + word_count;
