@@ -17,11 +17,11 @@ function js_random_integer(max) {
 }
 
 export default function tulo_main(parent) {
-    let word_count = 37;
+    let word_count = 38;
     word_count--;
     let question_count_max = 15;
     let sleep_wait_ms = 0;
-    let question_index = question_count_max;
+    let question_index;
     let skip_word_if = word => {
         return tulo_translate(word) === word.toLowerCase()
     }
@@ -45,16 +45,20 @@ export default function tulo_main(parent) {
         element_html_inner(parent, '');
 
         element_on_click(element_button_primary(element_add(parent, 'div'), 'Learn new words'), () => {
+            word_count--;
+            question_index = question_count_max;
             mode = mode_learn_new;
             answers = answers_get();
             refresh();
         });
         element_on_click(element_button_primary(element_add(parent, 'div'), 'Review existing words'), () => {
+            question_index = 0;
             mode = mode_review_existing;
             answers = answers_get();
             refresh();
         });
         element_on_click(element_button_primary(element_add(parent, 'div'), 'Practice mistakes'), () => {
+            question_index = 0;
             mode = mode_practice_mistakes;
             answers = answers_get();
             refresh();
@@ -82,7 +86,7 @@ export default function tulo_main(parent) {
 
         let round_new = false;
 
-        if (mode === mode_learn_new && (question_index === 0 || question_index === question_count_max)) {
+        if (mode === mode_learn_new && (question_index === question_count_max)) {
             question_index = 0;
             word_count++;
             words = words_get();
@@ -90,9 +94,7 @@ export default function tulo_main(parent) {
             round_new = true;            
         }
         
-        if (mode === mode_learn_new) {
-            question_index++;
-        }
+        question_index++;
 
         let go_home = () => {
             question_index--;
@@ -102,11 +104,11 @@ export default function tulo_main(parent) {
 
         let container_labels = element_add(parent, 'div');
 
+        element_html_inner(element_add(container_labels, 'div'), 'Progress: You are on question: ' + question_index + '. ')
         if (mode === mode_practice_mistakes) {
             element_html_inner(element_add(container_labels, 'div'), 'You have ' + mistakes.length + ' mistake(s) to practice.')
         }
         if (mode === mode_learn_new) {
-            element_html_inner(element_add(container_labels, 'div'), 'Progress: You are on question: ' + question_index + '. ')
             element_html_inner(element_add(container_labels, 'div'), 'You will learn a new word after question ' + question_count_max + ". ")
         }
 
@@ -329,5 +331,9 @@ export default function tulo_main(parent) {
         }
         console.log({answers})
         return answers;
+    }
+
+    function last_n(array, limit, n) {
+        return array.slice(limit - n, limit)
     }
 }
