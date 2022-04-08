@@ -1,10 +1,8 @@
 
 import element_add from '../element/add.mjs';
-import element_classes_add from '../element/classes_add.mjs';
 import element_html_inner from '../element/html_inner.mjs';
 import element_icon from '../element/icon.mjs';
 import element_on_click from '../element/on_click.mjs';
-import translations from '../languages/ceb/translations.json' assert { type: 'json' };
 import tulo_audio from './audio.mjs';
 import tulo_translate from './translate.mjs';
 
