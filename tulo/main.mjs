@@ -122,7 +122,6 @@ export default function tulo_main(parent) {
         element_add(container_labels, 'hr')
         element_html_inner(element_add(container_labels, 'div'), 'Translate the following word:')
         if (round_new) {
-            element_hide(container_labels);
         }
 
         if (answers.length === 0) {
@@ -145,13 +144,14 @@ export default function tulo_main(parent) {
         let { container } = result;
 
         if (mode === mode_learn_new && round_new) {
+            element_hide(container_labels);
             element_hide(container)
 
             let shows = [
                 container,
                 container_labels,
             ]
-            
+
             let container_rosetta = element_add(parent, 'div')
             element_html_inner(element_add(container_rosetta, 'div'), 'Here is a new word for you to learn: ');
             let rosetta = component_rosetta(container_rosetta, _.last(words));
