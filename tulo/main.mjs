@@ -90,10 +90,11 @@ export default function tulo_main(parent) {
         
         question_index++;
 
-        element_on_click(element_button_primary(parent, 'Go back home'), () => {
+        const go_home = () => {
             question_index--;
             component_home();
-        });
+        };
+        element_on_click(element_button_primary(parent, 'Go back home'), go_home);
 
         let container_labels = element_add(parent, 'div');
 
@@ -115,6 +116,7 @@ export default function tulo_main(parent) {
         }
 
         if (answers.length === 0) {
+
             answers = answers_get();
         }
         let answer = answers.pop();
