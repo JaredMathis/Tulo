@@ -44,20 +44,20 @@ export default function tulo_main(parent) {
         // clear
         element_html_inner(parent, '');
 
-        element_on_click(element_button_primary(parent, 'Learn new words'), () => {
+        element_on_click(element_button_primary(element_add(parent, 'div'), 'Learn new words'), () => {
             mode = mode_learn_new;
             refresh();
         });
-        element_on_click(element_button_primary(parent, 'Review existing words'), () => {
+        element_on_click(element_button_primary(element_add(parent, 'div'), 'Review existing words'), () => {
             mode = mode_review_existing;
             refresh();
         });
-        element_on_click(element_button_primary(parent, 'Practice mistakes'), () => {
+        element_on_click(element_button_primary(element_add(parent, 'div'), 'Practice mistakes'), () => {
             mode = mode_practice_mistakes;
             answers = answers_get();
             refresh();
         });
-        let button_all = element_button_primary(parent, 'View all learned words');
+        let button_all = element_button_primary(element_add(parent, 'div'), 'View all learned words');
         element_on_click(button_all, () => {
             words.forEach(word => {
                 element_add(parent, 'hr')
