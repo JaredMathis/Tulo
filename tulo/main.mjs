@@ -146,6 +146,9 @@ export default function tulo_main(parent) {
                 container,
                 container_labels,
             ]
+            function on_okay() {
+                result.onload();
+            }
             shows.forEach(s =>  element_hide(s))
 
             let container_rosetta = element_add(parent, 'div')
@@ -157,9 +160,6 @@ export default function tulo_main(parent) {
                 shows.forEach(s =>  element_show(s))
                 on_okay();
 
-                function on_okay() {
-                    result.onload();
-                }
             })
         } else {
             result.onload();
