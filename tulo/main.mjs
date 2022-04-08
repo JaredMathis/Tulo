@@ -25,6 +25,10 @@ export default function tulo_main(parent) {
     let choice_count = 4;
     let answers_from_previous = 4;
     let words = words_get();
+
+    // These are the words we're working on right now
+    let answers = answers_get();
+
     let is_review = true;
 
     element_on_click(element_button_primary(parent, 'Start'), refresh);
@@ -46,6 +50,10 @@ export default function tulo_main(parent) {
             question_index = 0;
             word_count++;
             words = words_get();
+            
+            // These are the words we're working on right now
+            let answers = answers_get();
+
             round_new = true;            
         }
         
@@ -54,8 +62,6 @@ export default function tulo_main(parent) {
         let label = 'Question: ' + question_index + ' / ' + question_count_max + '; words: ' + word_count;
         element_html_inner(element_add(parent, 'div'), label)
 
-        // These are the words we're working on right now
-        let answers = answers_get();
         let answer = answers[js_random_integer(answers.length)];
 
         console.log({answer, answers})
