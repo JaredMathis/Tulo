@@ -149,7 +149,7 @@ export default function tulo_main(parent) {
             function on_okay() {
                 result.onload();
             }
-            new_word(hides, on_okay);
+            new_word_prompt(hides, on_okay);
         } else {
             result.onload();
         }
@@ -298,7 +298,7 @@ export default function tulo_main(parent) {
         }
     }
 
-    function new_word(hides, on_okay) {
+    function new_word_prompt(hides, on_okay) {
         hides.forEach(s => element_hide(s));
 
         let container_rosetta = element_add(parent, 'div');
