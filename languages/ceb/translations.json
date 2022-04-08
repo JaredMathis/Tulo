@@ -1,12 +1,12 @@
 {
-  "hello": [
-    "kumusta"
-  ],
   "I": [
     "Ako"
   ],
   "you": [
     "ikaw"
+  ],
+  "hello": [
+    "kumusta"
   ],
   "the": [
     "ang"
@@ -301,5 +301,44 @@
   ],
   "us": [
     "kanato"
+  ],
+  "goodbye": [
+    "paalam"
+  ],
+  "How are you?": [
+    "kumusta ka?"
+  ],
+  "yes": [
+    "oo"
+  ],
+  "thank you": [
+    "salamat"
+  ],
+  "please": [
+    "Palihug"
+  ],
+  "excuse me": [
+    "pasayloa ko"
+  ],
+  "you are welcome": [
+    "walay sapayan"
+  ],
+  "love": [
+    "gugma"
+  ],
+  "I love you": [
+    "gihigugma tika"
+  ],
+  "sorry": [
+    "pasayloa"
+  ],
+  "I am sorry": [
+    "Pasayloa ko"
+  ],
+  "Jesus": [
+    "Hesus"
+  ],
+  "God": [
+    "Dios"
   ]
 }
