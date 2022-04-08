@@ -1,9 +1,13 @@
 import {TranslationServiceClient} from '@google-cloud/translate';
-import gcloud_auth_initialize from './gcloud/auth_initialize.mjs';
+import gcloud_auth_initialize from './auth_initialize.mjs';
 import {promises as fs} from 'fs'
 import path from 'path';
-import json_read from './json_read.mjs';
+import json_read from '../js/json_read.mjs';
+import directory_create_if_not_exists from '../js/directory_create_if_not_exists.mjs';
+import file_exists from '../js/file_exists.mjs';
+
 import top100 from '../english/top100.txt.json' assert { type: 'json' };
+import simple1 from '../english/simple1.txt.json' assert { type: 'json' };
 
 gcloud_auth_initialize()
 
@@ -55,7 +59,7 @@ let words = [
     'hello',
 ];
 
-words = words.concat(top100);
+words = words.concat(top100).concat(simple1);
 
 for (let w of words) {
     if (translations.hasOwnProperty(w)) {
