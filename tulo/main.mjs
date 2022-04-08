@@ -84,10 +84,14 @@ export default function tulo_main(parent) {
             component_home();
         });
 
+        let container_labels = element_add(parent, 'div');
         if (!round_new) {
-            element_html_inner(element_add(parent, 'div'), 'Progress: You are on question: ' + question_index + '. ')
-            element_html_inner(element_add(parent, 'div'), (is_review ? '' : 'You will learn a new word after question ' + question_count_max + ". "))
-            element_html_inner(element_add(parent, 'div'), 'You have learned ' + word_count + ' word(s).')
+            element_html_inner(element_add(container_labels, 'div'), 'Progress: You are on question: ' + question_index + '. ')
+            if (!is_review) {
+                element_html_inner(element_add(container_labels, 'div'), 'You will learn a new word after question ' + question_count_max + ". ")
+            }
+            element_html_inner(element_add(container_labels, 'div'), 'You have learned ' + word_count + ' word(s).')
+            element_html_inner(element_add(container_labels, 'div'), 'Translate the following word:')
         }
 
         if (answers.length === 0) {
