@@ -14,6 +14,7 @@ export default function phrase_translated(parent, untranslated) {
     element_html_inner(left, 'Cebuano: ');  
 
     let button_play = element_icon(container, 'volume-up-fill');
+    button_play.setAttribute('role', 'button')
     element_html_inner(element_add(container, 'span'), ' ');  
     
     let right = element_add(container, 'b')
@@ -25,7 +26,7 @@ export default function phrase_translated(parent, untranslated) {
     const play = () => {
         audio.play();
     };
-    element_on_click(right, play)
+    element_on_click(button_play, play)
 
     return {
         container,
