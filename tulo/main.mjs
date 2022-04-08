@@ -104,16 +104,8 @@ export default function tulo_main(parent) {
                 translated,
             }
         }
-
-        function refresh_multiple_generic(
-            answer, on_success, question_phrase, choice_phrase) {
-
-
-            return refresh_todo(answer, question_phrase, choice_phrase, on_success);
-        }
-
         
-        function refresh_todo(answer, question_phrase, choice_phrase, on_success) {
+        function refresh_multiple_generic(answer, question_phrase, choice_phrase, on_success) {
             let container = element_add(parent, 'div');
 
             let words_without_answer = _.without(words, answer);
