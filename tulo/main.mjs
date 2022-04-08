@@ -1,7 +1,7 @@
 import element_add from '../element/add.mjs'
 import element_html_inner from '../element/html_inner.mjs'
 import element_button_primary from '../element/button_primary.mjs'
-import top100 from '../english/top100.txt.json' assert { type: 'json' };
+import top100 from '../english/simple1.txt.json' assert { type: 'json' };
 import _ from '../external/lodash.mjs'
 import phrase_untranslated from './phrase_untranslated.mjs';
 import phrase_translated from './phrase_translated.mjs';
@@ -17,7 +17,7 @@ function js_random_integer(max) {
 }
 
 export default function tulo_main(parent) {
-    let word_count = 39;
+    let word_count = 5;
     let question_count_max = 15;
     // question_count_max = 1
     let sleep_wait_ms = 0;
@@ -45,11 +45,15 @@ export default function tulo_main(parent) {
         element_html_inner(parent, '');
 
         element_on_click(element_button_primary(element_add(parent, 'div'), 'Learn new words'), () => {
-            word_count--;
-            question_index = question_count_max;
-            mode = mode_learn_new;
-            answers = answers_get();
-            refresh();
+            if (word_count <= 5) {
+                // tutorial
+            } else {
+                word_count--;
+                question_index = question_count_max;
+                mode = mode_learn_new;
+                answers = answers_get();
+                refresh();
+            }
         });
         element_on_click(element_button_primary(element_add(parent, 'div'), 'Review existing words'), () => {
             question_index = 0;
