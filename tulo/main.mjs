@@ -155,7 +155,11 @@ export default function tulo_main(parent) {
             element_on_click(element_button_primary(container_rosetta, 'Okay!'), () => {
                 element_hide(container_rosetta)
                 shows.forEach(s =>  element_show(s))
-                result.onload();
+                on_okay();
+
+                function on_okay() {
+                    result.onload();
+                }
             })
         } else {
             result.onload();
