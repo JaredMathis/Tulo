@@ -45,14 +45,14 @@ export default function tulo_main(parent) {
         element_html_inner(parent, '');
 
         const learn_new_words = () => {
-            let tutorial_word_count = 2;
+            let tutorial_word_count = 5;
             if (word_count <= tutorial_word_count) {
                 console.log('here');
 
-                word_count = tutorial_word_count;
+                word_count = tutorial_word_count + 1;
                 words = words_get();
 
-                let tutorial_words = words.slice(0, word_count);
+                let tutorial_words = words.slice(0, tutorial_word_count);
                 let tutorial_words_repeated = _.shuffle(tutorial_words)
                     .concat(_.shuffle(tutorial_words))
                     .concat(_.shuffle(tutorial_words));
@@ -69,7 +69,7 @@ export default function tulo_main(parent) {
                     console.log({ tutorial_words_repeated });
 
                     if (tutorial_words_repeated.length === 0) {
-                        // TODO
+                        learn_new_words();
                         return;
                     }
 
