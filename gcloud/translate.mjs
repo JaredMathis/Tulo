@@ -16,7 +16,6 @@ const translationClient = new TranslationServiceClient();
 
 const projectId = 'peaceful-garden-346121';
 const location = 'global';
-const text = 'hello';
 
 async function translate(sourceLanguageCode, targetLanguageCode, text) {
     // Construct request
