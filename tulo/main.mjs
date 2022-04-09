@@ -17,7 +17,8 @@ function js_random_integer(max) {
 }
 
 export default function tulo_main(parent) {
-    let word_count = 0;
+    // How many words the user has learned so far
+    let word_count = 6;
     let question_count_max = 15;
     // question_count_max = 1
     let sleep_wait_ms = 0;
@@ -339,7 +340,7 @@ export default function tulo_main(parent) {
         element_html_inner(element_add(container_rosetta, 'div'), 'Here is a new word for you to learn: ');
         let rosetta = component_rosetta(container_rosetta, new_word);
         rosetta.translated.play();
-        element_on_click(element_button_primary(container_rosetta, 'Okay!'), () => {
+        element_on_click(element_button_primary(container_rosetta, 'Let\'s practice this word!'), () => {
             element_hide(container_rosetta);
             hides.forEach(s => element_show(s));
             on_okay();
