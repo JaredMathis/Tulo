@@ -18,3 +18,6 @@ for (let english in to) {
     await gcloud_text_to_speech(translated, languageCode);
   }
 }
+for (let cebuano in from) {
+  await gcloud_text_to_speech(cebuano, languageCode);
+}
