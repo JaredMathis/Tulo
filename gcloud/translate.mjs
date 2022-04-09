@@ -44,30 +44,34 @@ let words = [
 
 words = words.concat(top100).concat(simple1);
 
-let language_directory = './languages/' + targetLanguageCode;
-await directory_create_if_not_exists(language_directory);
+await todo();
 
-let path_translations = path.join(language_directory,`translations_${sourceLanguageCode}_${targetLanguageCode}.json`);
+async function todo() {
+    let language_directory = './languages/' + targetLanguageCode;
+    await directory_create_if_not_exists(language_directory);
 
-let translations;
+    let path_translations = path.join(language_directory,`translations_${sourceLanguageCode}_${targetLanguageCode}.json`);
 
-if (!await file_exists(path_translations)) {
-    await saveTranslations();
-}
+    let translations;
 
-async function saveTranslations() {
-    await fs.writeFile(path_translations, JSON.stringify(translations, null, 2));
-}
-
-translations = await json_read(path_translations);
-
-for (let w of words) {
-    if (translations.hasOwnProperty(w)) {
-        console.log('Skipping ' + w);
-        continue;
+    if (!await file_exists(path_translations)) {
+        await saveTranslations();
     }
-    let translateds = await translate(sourceLanguageCode, targetLanguageCode, w)
-    translations[w] = translateds.map(t => t['translatedText']);
+
+    async function saveTranslations() {
+        await fs.writeFile(path_translations, JSON.stringify(translations, null, 2));
+    }
+
+    translations = await json_read(path_translations);
+
+    for (let w of words) {
+        if (translations.hasOwnProperty(w)) {
+            console.log('Skipping ' + w);
+            continue;
+        }
+        let translateds = await translate(sourceLanguageCode, targetLanguageCode, w)
+        translations[w] = translateds.map(t => t['translatedText']);
+        await saveTranslations();
+    }
     await saveTranslations();
 }
-await saveTranslations();
