@@ -14,10 +14,12 @@ gcloud_auth_initialize()
 // Instantiates a client
 const translationClient = new TranslationServiceClient();
 
-const projectId = 'peaceful-garden-346121';
-const location = 'global';
 
 async function translate(sourceLanguageCode, targetLanguageCode, text) {
+    
+    const projectId = 'peaceful-garden-346121';
+    const location = 'global';
+
     // Construct request
     const request = {
         parent: `projects/${projectId}/locations/${location}`,
