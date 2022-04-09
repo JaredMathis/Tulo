@@ -36,13 +36,13 @@ async function translate(sourceLanguageCode, targetLanguageCode, text) {
 }
 
 // translateText(targetLanguageCode, 'hello');
-let words = [
+let words_english = [
     'I',
     "you",
     'hello',
 ];
 
-words = words.concat(top100).concat(simple1);
+words_english = words_english.concat(top100).concat(simple1);
 
 await todo();
 
@@ -64,7 +64,7 @@ async function todo() {
 
     translations = await json_read(path_translations);
 
-    for (let w of words) {
+    for (let w of words_english) {
         if (translations.hasOwnProperty(w)) {
             console.log('Skipping ' + w);
             continue;
