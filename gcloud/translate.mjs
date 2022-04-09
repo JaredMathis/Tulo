@@ -18,14 +18,15 @@ const projectId = 'peaceful-garden-346121';
 const location = 'global';
 const text = 'hello';
 const targetLanguageCode = 'ceb';
+let sourceLanguageCode = 'en';
 
-async function translate(targetLanguageCode, text) {
+async function translate(sourceLanguageCode, targetLanguageCode, text) {
     // Construct request
     const request = {
         parent: `projects/${projectId}/locations/${location}`,
         contents: [text],
         mimeType: 'text/plain', // mime types: text/plain, text/html
-        sourceLanguageCode: 'en',
+        sourceLanguageCode,
         targetLanguageCode,
     };
 
@@ -66,7 +67,7 @@ for (let w of words) {
         console.log('Skipping ' + w);
         continue;
     }
-    let translateds = await translate(targetLanguageCode, w)
+    let translateds = await translate(sourceLanguageCode, targetLanguageCode, w)
     translations[w] = translateds.map(t => t['translatedText']);
     await saveTranslations();
 }
