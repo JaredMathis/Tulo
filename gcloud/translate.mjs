@@ -54,7 +54,7 @@ async function translate_and_save(words, sourceLanguageCode, targetLanguageCode)
 
     let path_translations = path.join(language_directory, `${sourceLanguageCode}_${targetLanguageCode}.json`);
 
-    let translations;
+    let translations = {};
 
     if (!await file_exists(path_translations)) {
         await saveTranslations();
