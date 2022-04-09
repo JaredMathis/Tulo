@@ -61,8 +61,6 @@ async function saveTranslations() {
 
 translations = await json_read(path_translations);
 
-
-
 for (let w of words) {
     if (translations.hasOwnProperty(w)) {
         console.log('Skipping ' + w);
