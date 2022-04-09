@@ -45,7 +45,7 @@ export default function tulo_main(parent) {
         // clear
         element_html_inner(parent, '');
 
-        const learn_new_words = () => {
+        function learn_new_words() {
             let tutorial_word_count = 5;
             if (word_count <= tutorial_word_count) {
                 console.log('here');
