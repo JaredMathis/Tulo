@@ -40,7 +40,7 @@ async function translate(sourceLanguageCode, targetLanguageCode, text) {
 let language_directory = './languages/' + targetLanguageCode;
 await directory_create_if_not_exists(language_directory);
 
-let path_translations = path.join(language_directory, 'translations.json');
+let path_translations = path.join(language_directory,`translations_${sourceLanguageCode}_${targetLanguageCode}.json`);
 
 let translations;
 
