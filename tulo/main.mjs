@@ -54,7 +54,7 @@ export default function tulo_main(parent) {
                 words = words_get();
 
                 let tutorial_words = words.slice(0, tutorial_word_count);
-                let tutorial_words_repeated = _.shuffle(tutorial_words)
+                let tutorial_words_repeated = (tutorial_words)
                     .concat(_.shuffle(tutorial_words))
                     .concat(_.shuffle(tutorial_words));
 
