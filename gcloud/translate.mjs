@@ -72,6 +72,9 @@ async function translate_and_save(words, sourceLanguageCode, targetLanguageCode)
             console.log('Skipping ' + w);
             continue;
         }
+        if (count > 2) {
+            break;
+        }
         let translateds = await translate(sourceLanguageCode, targetLanguageCode, w)
         translations[w] = translateds.map(t => t['translatedText']);
         await saveTranslations();
