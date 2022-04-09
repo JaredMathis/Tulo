@@ -8,6 +8,7 @@ import file_exists from '../js/file_exists.mjs';
 
 import top100 from '../words/top100.txt.json' assert { type: 'json' };
 import simple1 from '../words/simple1.txt.json' assert { type: 'json' };
+import james_1 from '../words/james_1.json' assert { type: 'json' };
 
 gcloud_auth_initialize()
 
@@ -33,6 +34,11 @@ async function translate(sourceLanguageCode, targetLanguageCode, text) {
     return response.translations;
 }
 
+const language_code_cebuano = 'ceb';
+let language_code_english = 'en';
+
+await translate_and_save(james_1, language_code_cebuano, language_code_english);
+
 let words_english = [
     'I',
     "you",
@@ -40,8 +46,6 @@ let words_english = [
 ];
 words_english = words_english.concat(top100).concat(simple1);
 
-const language_code_cebuano = 'ceb';
-let language_code_english = 'en';
 await translate_and_save(words_english, language_code_english, language_code_cebuano);
 
 async function translate_and_save(words, sourceLanguageCode, targetLanguageCode) {
@@ -62,6 +66,7 @@ async function translate_and_save(words, sourceLanguageCode, targetLanguageCode)
 
     translations = await json_read(path_translations);
 
+    let counter = 0;
     for (let w of words) {
         if (translations.hasOwnProperty(w)) {
             console.log('Skipping ' + w);
@@ -70,6 +75,7 @@ async function translate_and_save(words, sourceLanguageCode, targetLanguageCode)
         let translateds = await translate(sourceLanguageCode, targetLanguageCode, w)
         translations[w] = translateds.map(t => t['translatedText']);
         await saveTranslations();
+        counter++;
     }
     await saveTranslations();
 }
