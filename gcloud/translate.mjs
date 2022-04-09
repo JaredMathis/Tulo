@@ -66,13 +66,14 @@ async function translate_and_save(words, sourceLanguageCode, targetLanguageCode)
         await fs.writeFile(path_translations, JSON.stringify(translations, null, 2));
     }
 
+    let counter_max = 2
     let counter = 0;
     for (let w of words) {
         if (translations.hasOwnProperty(w)) {
             console.log('Skipping ' + w);
             continue;
         }
-        if (counter > 2) {
+        if (counter > counter_max) {
             break;
         }
         let translateds = await translate(sourceLanguageCode, targetLanguageCode, w)
