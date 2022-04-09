@@ -346,6 +346,7 @@ export default function tulo_main(parent) {
             on_okay();
         });
         element_on_click(element_button_primary(container_rosetta, 'I already know this word!'), () => {
+            word_count++;
         });
     }
 
