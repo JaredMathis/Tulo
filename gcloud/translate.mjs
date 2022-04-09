@@ -14,9 +14,8 @@ gcloud_auth_initialize()
 // Instantiates a client
 const translationClient = new TranslationServiceClient();
 
-
 async function translate(sourceLanguageCode, targetLanguageCode, text) {
-    
+
     const projectId = 'peaceful-garden-346121';
     const location = 'global';
 
