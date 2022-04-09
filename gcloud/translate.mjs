@@ -44,9 +44,9 @@ let words_english = [
 
 words_english = words_english.concat(top100).concat(simple1);
 
-await todo();
+await translate_and_saved();
 
-async function todo() {
+async function translate_and_saved() {
     let language_directory = './translations/' + targetLanguageCode;
     await directory_create_if_not_exists(language_directory);
 
