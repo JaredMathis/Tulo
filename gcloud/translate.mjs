@@ -42,9 +42,9 @@ let words_english = [
 
 words_english = words_english.concat(top100).concat(simple1);
 
-const targetLanguageCode = 'ceb';
-let sourceLanguageCode = 'en';
-await translate_and_saved(words_english, sourceLanguageCode, targetLanguageCode);
+const language_code_cebuano = 'ceb';
+let language_code_english = 'en';
+await translate_and_saved(words_english, language_code_english, language_code_cebuano);
 
 async function translate_and_saved(words, sourceLanguageCode, targetLanguageCode) {
     let language_directory = './translations/' + targetLanguageCode;
