@@ -79,7 +79,6 @@ export default function tulo_main(parent) {
                         tutorial_prompt();
                     });
                 }
-
             } else {
                 word_count--;
                 question_index = question_count_max;
@@ -87,8 +86,7 @@ export default function tulo_main(parent) {
                 answers = answers_get();
                 refresh();
             }
-
-        };
+        }
         element_on_click(element_button_primary(element_add(parent, 'div'), 'Learn new words'), learn_new_words);
         element_on_click(element_button_primary(element_add(parent, 'div'), 'Review existing words'), () => {
             question_index = 0;
