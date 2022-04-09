@@ -1,0 +1,984 @@
+{
+  "I": [
+    "ako",
+    "kong"
+  ],
+  "you": [
+    "ikaw",
+    "ka",
+    "kaninyoy",
+    "kang"
+  ],
+  "hello": [
+    "kumusta"
+  ],
+  "the": [
+    "ang",
+    "mga"
+  ],
+  "be": [
+    "mahimong"
+  ],
+  "to": [
+    "sa",
+    "nganha",
+    "aron"
+  ],
+  "of": [
+    "sa",
+    "ni"
+  ],
+  "and": [
+    "ug",
+    "unya",
+    "apan"
+  ],
+  "a": [
+    "a"
+  ],
+  "in": [
+    "sa"
+  ],
+  "that": [
+    "nga",
+    "na"
+  ],
+  "have": [
+    "adunay",
+    "aduna"
+  ],
+  "it": [
+    "kini",
+    "niana",
+    "niini"
+  ],
+  "for": [
+    "kay"
+  ],
+  "not": [
+    "dili"
+  ],
+  "on": [
+    "sa"
+  ],
+  "with": [
+    "uban sa",
+    "kay"
+  ],
+  "he": [
+    "siya"
+  ],
+  "as": [
+    "ingon"
+  ],
+  "do": [
+    "buhata",
+    "pagbuhat"
+  ],
+  "at": [
+    "sa"
+  ],
+  "this": [
+    "kini",
+    "niining"
+  ],
+  "but": [
+    "apan",
+    "hinonoa",
+    "kondili"
+  ],
+  "his": [
+    "iya"
+  ],
+  "by": [
+    "pinaagi sa",
+    "human",
+    "gumikan"
+  ],
+  "from": [
+    "gikan sa",
+    "nagagikan"
+  ],
+  "they": [
+    "sila"
+  ],
+  "we": [
+    "kami"
+  ],
+  "say": [
+    "ingnon"
+  ],
+  "her": [
+    "kaniya"
+  ],
+  "she": [
+    "siya",
+    "niyang"
+  ],
+  "or": [
+    "o",
+    "bisan"
+  ],
+  "an": [
+    "an"
+  ],
+  "will": [
+    "kabubut-on"
+  ],
+  "my": [
+    "akong",
+    "ko"
+  ],
+  "one": [
+    "sa usa ka"
+  ],
+  "all": [
+    "tanan"
+  ],
+  "would": [
+    "unta"
+  ],
+  "there": [
+    "didto",
+    "adunay"
+  ],
+  "their": [
+    "ilang"
+  ],
+  "what": [
+    "unsa"
+  ],
+  "so": [
+    "mao nga"
+  ],
+  "up": [
+    "pataas"
+  ],
+  "out": [
+    "gawas"
+  ],
+  "if": [
+    "kon"
+  ],
+  "about": [
+    "mahitungod sa"
+  ],
+  "who": [
+    "who",
+    "kinsa"
+  ],
+  "get": [
+    "kuhaa"
+  ],
+  "which": [
+    "nga"
+  ],
+  "go": [
+    "lakaw"
+  ],
+  "me": [
+    "kanako"
+  ],
+  "when": [
+    "kanus-a",
+    "diha",
+    "kon"
+  ],
+  "make": [
+    "paghimo"
+  ],
+  "can": [
+    "mahimo",
+    "arang"
+  ],
+  "like": [
+    "sama sa",
+    "mahisama"
+  ],
+  "time": [
+    "panahon"
+  ],
+  "no": [
+    "dili",
+    "walay"
+  ],
+  "just": [
+    "lang"
+  ],
+  "him": [
+    "siya"
+  ],
+  "know": [
+    "nahibalo"
+  ],
+  "take": [
+    "kuhaa"
+  ],
+  "people": [
+    "mga tawo"
+  ],
+  "into": [
+    "ngadto sa"
+  ],
+  "year": [
+    "tuig"
+  ],
+  "your": [
+    "imong",
+    "inyong"
+  ],
+  "good": [
+    "maayo",
+    "maayong"
+  ],
+  "some": [
+    "ang uban"
+  ],
+  "could": [
+    "mahimo"
+  ],
+  "them": [
+    "sila"
+  ],
+  "see": [
+    "tan-awa"
+  ],
+  "other": [
+    "uban"
+  ],
+  "than": [
+    "kay sa"
+  ],
+  "then": [
+    "unya"
+  ],
+  "now": [
+    "karon"
+  ],
+  "look": [
+    "tan-awa"
+  ],
+  "only": [
+    "lamang",
+    "lang"
+  ],
+  "come": [
+    "umari"
+  ],
+  "its": [
+    "niini"
+  ],
+  "over": [
+    "tapos na"
+  ],
+  "think": [
+    "hunahunaa",
+    "magahunahuna"
+  ],
+  "also": [
+    "usab",
+    "man"
+  ],
+  "back": [
+    "balik"
+  ],
+  "after": [
+    "pagkahuman"
+  ],
+  "use": [
+    "paggamit"
+  ],
+  "two": [
+    "duha"
+  ],
+  "how": [
+    "unsaon"
+  ],
+  "our": [
+    "amua",
+    "atong"
+  ],
+  "work": [
+    "trabaho"
+  ],
+  "first": [
+    "una"
+  ],
+  "well": [
+    "maayo"
+  ],
+  "way": [
+    "paagi"
+  ],
+  "even": [
+    "bisan"
+  ],
+  "new": [
+    "bag-o nga"
+  ],
+  "want": [
+    "gusto"
+  ],
+  "because": [
+    "kay",
+    "sanglit"
+  ],
+  "any": [
+    "bisan unsa"
+  ],
+  "these": [
+    "kini"
+  ],
+  "give": [
+    "paghatag",
+    "igahatag"
+  ],
+  "day": [
+    "adlaw"
+  ],
+  "most": [
+    "kadaghanan"
+  ],
+  "us": [
+    "kanato"
+  ],
+  "goodbye": [
+    "paalam"
+  ],
+  "How are you?": [
+    "kumusta ka?"
+  ],
+  "yes": [
+    "oo"
+  ],
+  "thank you": [
+    "salamat"
+  ],
+  "please": [
+    "palihug"
+  ],
+  "excuse me": [
+    "pasayloa ko"
+  ],
+  "you are welcome": [
+    "walay sapayan"
+  ],
+  "love": [
+    "gugma",
+    "nagahigugma"
+  ],
+  "I love you": [
+    "gihigugma tika"
+  ],
+  "sorry": [
+    "pasayloa"
+  ],
+  "I am sorry": [
+    "pasayloa ko"
+  ],
+  "Jesus": [
+    "hesus"
+  ],
+  "God": [
+    "dios"
+  ],
+  "si": [
+    "si"
+  ],
+  "JAMEs": [
+    "santiago"
+  ],
+  "SLAVE": [
+    "ulipon"
+  ],
+  "lord": [
+    "ginoong"
+  ],
+  "JESUS CHRIST": [
+    "jesu-cristo"
+  ],
+  "TEN": [
+    "napulo"
+  ],
+  "FAMILY": [
+    "banay"
+  ],
+  "Dispersion": [
+    "nanghitibulaag"
+  ],
+  "greetings": [
+    "komusta"
+  ],
+  "BROTHER": [
+    "igsoon"
+  ],
+  "count": [
+    "isipa"
+  ],
+  "IS": [
+    "maoy"
+  ],
+  "great": [
+    "tumang"
+  ],
+  "HAPPINESS": [
+    "kalipay"
+  ],
+  "fall": [
+    "igakasugat",
+    "mangatagak"
+  ],
+  "YOU": [
+    "ninyo",
+    "kamo"
+  ],
+  "differing": [
+    "nagkalainlaing"
+  ],
+  "temptation": [
+    "panulay"
+  ],
+  "test": [
+    "pagsulay"
+  ],
+  "faith": [
+    "pagtoo"
+  ],
+  "lead": [
+    "mosangpot"
+  ],
+  "suffering": [
+    "pagkamainantuson"
+  ],
+  "is": [
+    "mao"
+  ],
+  "must": [
+    "kinahanglan"
+  ],
+  "allow": [
+    "tugotan"
+  ],
+  "PERFECT": [
+    "hingpit"
+  ],
+  "perfect": [
+    "mamahingpit"
+  ],
+  "lacking": [
+    "masangkap",
+    "nakulangan"
+  ],
+  "fail": [
+    "makulang"
+  ],
+  "wisdom": [
+    "kaalam"
+  ],
+  "Himself": [
+    "papangayoa"
+  ],
+  "giveth": [
+    "nagapanghatag"
+  ],
+  "tO": [
+    "ngadto"
+  ],
+  "ALL": [
+    "tanang"
+  ],
+  "PEOPLE": [
+    "tawo"
+  ],
+  "bountifully": [
+    "madagayaon"
+  ],
+  "NEVER": [
+    "gayud"
+  ],
+  "upbraid": [
+    "pagpamoyboy"
+  ],
+  "rather": [
+    "hinoon"
+  ],
+  "seek": [
+    "mangayo"
+  ],
+  "OTHERS": [
+    "uban"
+  ],
+  "doubts": [
+    "pagduhaduha",
+    "nagaduhaduha"
+  ],
+  "together": [
+    "sama"
+  ],
+  "waves": [
+    "balud"
+  ],
+  "sea": [
+    "dagat"
+  ],
+  "driven": [
+    "ginahandos"
+  ],
+  "tossed": [
+    "ginakosokoso"
+  ],
+  "WIND": [
+    "hangin"
+  ],
+  "do not": [
+    "ayaw"
+  ],
+  "seem": [
+    "ipadahum"
+  ],
+  "jeans": [
+    "maong"
+  ],
+  "Receive": [
+    "madawat"
+  ],
+  "FROM": [
+    "gikan"
+  ],
+  "sir": [
+    "ginoo"
+  ],
+  "MAN": [
+    "tawong"
+  ],
+  "double": [
+    "tagurhag"
+  ],
+  "THINKING": [
+    "panghunahuna"
+  ],
+  "unstable": [
+    "mabalhinon"
+  ],
+  "WAYS": [
+    "paagi"
+  ],
+  "available": [
+    "anaa"
+  ],
+  "UNDER": [
+    "ubos"
+  ],
+  "case": [
+    "kahimtang"
+  ],
+  "rejoice": [
+    "magakalipay"
+  ],
+  "PROUD": [
+    "mapasigarbohon"
+  ],
+  "BECAUSE": [
+    "tungod"
+  ],
+  "HIS": [
+    "iyang"
+  ],
+  "lifted": [
+    "paghituboy"
+  ],
+  "middle finger": [
+    "dato"
+  ],
+  "exhaustion": [
+    "pagkaubos"
+  ],
+  "JUST": [
+    "maingon"
+  ],
+  "boiling": [
+    "bulak"
+  ],
+  "garden": [
+    "tanaman"
+  ],
+  "disappear": [
+    "mahanaw"
+  ],
+  "ra": [
+    "ra"
+  ],
+  "DAY": [
+    "adlaw"
+  ],
+  "rises": [
+    "mosubang"
+  ],
+  "scorching": [
+    "magaalagiting"
+  ],
+  "heat": [
+    "kainit"
+  ],
+  "free": [
+    "malaya"
+  ],
+  "flowers": [
+    "kabulakan"
+  ],
+  "wilderness": [
+    "ilang"
+  ],
+  "beauty": [
+    "katahum"
+  ],
+  "perishes": [
+    "mawagtang"
+  ],
+  "As": [
+    "ingon"
+  ],
+  "again": [
+    "usab"
+  ],
+  "among": [
+    "taliwala"
+  ],
+  "CONDUCT": [
+    "pagpahigayon"
+  ],
+  "bluffing": [
+    "bulahan"
+  ],
+  "bear": [
+    "moantus",
+    "makaantus",
+    "manganak"
+  ],
+  "crown": [
+    "purongpurong"
+  ],
+  "life": [
+    "kinabuhi"
+  ],
+  "gisaad": [
+    "gisaad"
+  ],
+  "theirs": [
+    "kanila"
+  ],
+  "Oh let": [
+    "ipaingon"
+  ],
+  "tempted": [
+    "pagatintalon",
+    "gitintal",
+    "matintal"
+  ],
+  "evil": [
+    "dautan"
+  ],
+  "ONE-USA": [
+    "matag-usa"
+  ],
+  "talkative": [
+    "madaldal"
+  ],
+  "seduced": [
+    "mahaylo"
+  ],
+  "own": [
+    "kaugalingong",
+    "kaugalingon"
+  ],
+  "lust": [
+    "pagpangibog"
+  ],
+  "conceived": [
+    "makapanamkon"
+  ],
+  "beareth": [
+    "magapahimugsog"
+  ],
+  "sin": [
+    "sala"
+  ],
+  "when it": [
+    "inigkagulang"
+  ],
+  "death": [
+    "kamatayon"
+  ],
+  "deceived": [
+    "pagpalimbong"
+  ],
+  "dear": [
+    "hinigugma"
+  ],
+  "high": [
+    "hatag"
+  ],
+  "gauze": [
+    "gasa"
+  ],
+  "heights": [
+    "kahitas-an"
+  ],
+  "FATHER": [
+    "amahan"
+  ],
+  "LIGHT": [
+    "kahayag"
+  ],
+  "changed": [
+    "pagkausab"
+  ],
+  "shadow": [
+    "landong"
+  ],
+  "change": [
+    "pagkabalhin"
+  ],
+  "Carry On": [
+    "kabubut-on"
+  ],
+  "earnings": [
+    "kita"
+  ],
+  "birth": [
+    "gipanganak",
+    "pagkatawo"
+  ],
+  "through": [
+    "pinaagi"
+  ],
+  "MEETING": [
+    "pulong"
+  ],
+  "truth": [
+    "kamatuoran"
+  ],
+  "shall": [
+    "mangahimong"
+  ],
+  "front": [
+    "pangunahang"
+  ],
+  "fruit": [
+    "bunga"
+  ],
+  "creation": [
+    "binuhat"
+  ],
+  "answer": [
+    "sabta"
+  ],
+  "swift": [
+    "magmaabtik"
+  ],
+  "hearing": [
+    "pagpanimati"
+  ],
+  "slow": [
+    "magmahinay"
+  ],
+  "speak": [
+    "pagsulti"
+  ],
+  "resentment": [
+    "pagkasuko"
+  ],
+  "anger": [
+    "kasuko"
+  ],
+  "THAT": [
+    "nianang"
+  ],
+  "RIGHTEOUSNESS": [
+    "pagkamatarung"
+  ],
+  "approval": [
+    "uyon"
+  ],
+  "therefore": [
+    "busa"
+  ],
+  "putting": [
+    "lugori"
+  ],
+  "smudge": [
+    "buling"
+  ],
+  "exceeding": [
+    "naghingapin"
+  ],
+  "wickedness": [
+    "pagkadautan"
+  ],
+  "receive": [
+    "dawata"
+  ],
+  "meekness": [
+    "kaaghop"
+  ],
+  "planted": [
+    "tinanum"
+  ],
+  "SAVES": [
+    "makaluwas"
+  ],
+  "loose": [
+    "kalag"
+  ],
+  "obey": [
+    "tumana"
+  ],
+  "hearers": [
+    "magpaminaw"
+  ],
+  "deceiving": [
+    "ginalimbongan"
+  ],
+  "enough": [
+    "igo"
+  ],
+  "rang": [
+    "rang"
+  ],
+  "listen": [
+    "maminaw"
+  ],
+  "comply": [
+    "motuman"
+  ],
+  "deer": [
+    "usa"
+  ],
+  "sees": [
+    "nagasud-ong",
+    "magasud-ong"
+  ],
+  "glass": [
+    "salamin"
+  ],
+  "FACE": [
+    "nawong"
+  ],
+  "carrying": [
+    "dala"
+  ],
+  "more": [
+    "pa"
+  ],
+  "leave": [
+    "molakaw"
+  ],
+  "INSTANT": [
+    "dihadiha"
+  ],
+  "forget": [
+    "mahikalimot"
+  ],
+  "THEN": [
+    "dayon"
+  ],
+  "How": [
+    "unsang"
+  ],
+  "of man": [
+    "pagkadagwaya"
+  ],
+  "focuses": [
+    "nagatutok"
+  ],
+  "LAWS": [
+    "kasugoan"
+  ],
+  "gives": [
+    "nagahatag"
+  ],
+  "release": [
+    "kagawasan"
+  ],
+  "endureth": [
+    "nagapadayon"
+  ],
+  "aim": [
+    "pagtutok"
+  ],
+  "hearer": [
+    "tigpaminaw"
+  ],
+  "forgets": [
+    "nagakalimot"
+  ],
+  "workers": [
+    "tigbuhat"
+  ],
+  "doeth": [
+    "nagabuhat"
+  ],
+  "be happy": [
+    "malipay"
+  ],
+  "rilihiyoso": [
+    "rilihiyoso"
+  ],
+  "nothing": [
+    "wala"
+  ],
+  "forbear": [
+    "magpugong"
+  ],
+  "TONGUE": [
+    "dila"
+  ],
+  "deceives": [
+    "nagalimbong"
+  ],
+  "HEART": [
+    "kasingkasing"
+  ],
+  "religion": [
+    "rilihiyon"
+  ],
+  "man": [
+    "tawhana"
+  ],
+  "profit": [
+    "magpulos"
+  ],
+  "pure": [
+    "putli"
+  ],
+  "undefiled": [
+    "bulingon"
+  ],
+  "before": [
+    "atubangan"
+  ],
+  "VISITING": [
+    "pagduaw"
+  ],
+  "ilo": [
+    "ilo"
+  ],
+  "woman": [
+    "babayeng"
+  ],
+  "widow": [
+    "balo"
+  ],
+  "distress": [
+    "pagkaguol"
+  ],
+  "take care": [
+    "pag-amping"
+  ],
+  "contaminated": [
+    "mahugawan"
+  ],
+  "world": [
+    "kalibutan"
+  ]
+}
