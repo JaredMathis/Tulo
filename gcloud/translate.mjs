@@ -6,8 +6,8 @@ import json_read from '../js/json_read.mjs';
 import directory_create_if_not_exists from '../js/directory_create_if_not_exists.mjs';
 import file_exists from '../js/file_exists.mjs';
 
-import top100 from '../english/top100.txt.json' assert { type: 'json' };
-import simple1 from '../english/simple1.txt.json' assert { type: 'json' };
+import top100 from '../words/top100.txt.json' assert { type: 'json' };
+import simple1 from '../words/simple1.txt.json' assert { type: 'json' };
 
 gcloud_auth_initialize()
 
