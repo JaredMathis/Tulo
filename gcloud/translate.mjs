@@ -44,9 +44,9 @@ let words_english = [
 
 words_english = words_english.concat(top100).concat(simple1);
 
-await translate_and_saved();
+await translate_and_saved(words_english);
 
-async function translate_and_saved() {
+async function translate_and_saved(words) {
     let language_directory = './translations/' + targetLanguageCode;
     await directory_create_if_not_exists(language_directory);
 
@@ -64,7 +64,7 @@ async function translate_and_saved() {
 
     translations = await json_read(path_translations);
 
-    for (let w of words_english) {
+    for (let w of words) {
         if (translations.hasOwnProperty(w)) {
             console.log('Skipping ' + w);
             continue;
