@@ -345,6 +345,8 @@ export default function tulo_main(parent) {
             hides.forEach(s => element_show(s));
             on_okay();
         });
+        element_on_click(element_button_primary(container_rosetta, 'I already know this word!'), () => {
+        });
     }
 
     function on_mistake(untranslateds) {
