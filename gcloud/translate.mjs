@@ -36,6 +36,13 @@ async function translate(sourceLanguageCode, targetLanguageCode, text) {
 }
 
 // translateText(targetLanguageCode, 'hello');
+let words = [
+    'I',
+    "you",
+    'hello',
+];
+
+words = words.concat(top100).concat(simple1);
 
 let language_directory = './languages/' + targetLanguageCode;
 await directory_create_if_not_exists(language_directory);
@@ -54,13 +61,7 @@ async function saveTranslations() {
 
 translations = await json_read(path_translations);
 
-let words = [
-    'I',
-    "you",
-    'hello',
-];
 
-words = words.concat(top100).concat(simple1);
 
 for (let w of words) {
     if (translations.hasOwnProperty(w)) {
