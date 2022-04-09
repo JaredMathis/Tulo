@@ -33,13 +33,11 @@ async function translate(sourceLanguageCode, targetLanguageCode, text) {
     return response.translations;
 }
 
-// translateText(targetLanguageCode, 'hello');
 let words_english = [
     'I',
     "you",
     'hello',
 ];
-
 words_english = words_english.concat(top100).concat(simple1);
 
 const language_code_cebuano = 'ceb';
