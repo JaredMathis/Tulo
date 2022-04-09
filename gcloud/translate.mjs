@@ -50,7 +50,7 @@ async function todo() {
     let language_directory = './translations/' + targetLanguageCode;
     await directory_create_if_not_exists(language_directory);
 
-    let path_translations = path.join(language_directory,`${sourceLanguageCode}_${targetLanguageCode}.json`);
+    let path_translations = path.join(language_directory, `${sourceLanguageCode}_${targetLanguageCode}.json`);
 
     let translations;
 
