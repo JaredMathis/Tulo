@@ -54,17 +54,17 @@ async function translate_and_save(words, sourceLanguageCode, targetLanguageCode)
 
     let path_translations = path.join(language_directory, `${sourceLanguageCode}_${targetLanguageCode}.json`);
 
-    let translations = {};
+    let translations
 
-    if (!await file_exists(path_translations)) {
-        await saveTranslations();
+    if (await file_exists(path_translations)) {
+        translations = await json_read(path_translations);
+    } else {
+        translations = {};
     }
 
     async function saveTranslations() {
         await fs.writeFile(path_translations, JSON.stringify(translations, null, 2));
     }
-
-    translations = await json_read(path_translations);
 
     let counter = 0;
     for (let w of words) {
@@ -72,7 +72,7 @@ async function translate_and_save(words, sourceLanguageCode, targetLanguageCode)
             console.log('Skipping ' + w);
             continue;
         }
-        if (count > 2) {
+        if (counter > 2) {
             break;
         }
         let translateds = await translate(sourceLanguageCode, targetLanguageCode, w)
