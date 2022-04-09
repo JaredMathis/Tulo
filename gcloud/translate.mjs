@@ -17,8 +17,6 @@ const translationClient = new TranslationServiceClient();
 const projectId = 'peaceful-garden-346121';
 const location = 'global';
 const text = 'hello';
-const targetLanguageCode = 'ceb';
-let sourceLanguageCode = 'en';
 
 async function translate(sourceLanguageCode, targetLanguageCode, text) {
     // Construct request
@@ -44,6 +42,8 @@ let words_english = [
 
 words_english = words_english.concat(top100).concat(simple1);
 
+const targetLanguageCode = 'ceb';
+let sourceLanguageCode = 'en';
 await translate_and_saved(words_english, sourceLanguageCode, targetLanguageCode);
 
 async function translate_and_saved(words, sourceLanguageCode, targetLanguageCode) {
