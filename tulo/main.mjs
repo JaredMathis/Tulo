@@ -41,52 +41,53 @@ export default function tulo_main(parent) {
 
     component_home();
 
+    function learn_new_words() {
+        let tutorial_word_count = 5;
+        if (word_count <= tutorial_word_count) {
+            console.log('here');
+
+            word_count = tutorial_word_count + 1;
+            words = words_get();
+
+            let tutorial_words = words.slice(0, tutorial_word_count);
+            let tutorial_words_repeated = (tutorial_words)
+                .concat(_.shuffle(tutorial_words))
+                .concat(_.shuffle(tutorial_words));
+
+            console.log(words);
+
+            tutorial_prompt();
+            return;
+
+            function tutorial_prompt() {
+
+                element_html_inner(parent, '');
+
+                console.log({ tutorial_words_repeated });
+
+                if (tutorial_words_repeated.length === 0) {
+                    learn_new_words();
+                    return;
+                }
+
+                let last = tutorial_words_repeated.pop();
+                new_word_prompt(last, [], () => {
+                    tutorial_prompt();
+                });
+            }
+        } else {
+            word_count--;
+            question_index = question_count_max;
+            mode = mode_learn_new;
+            answers = answers_get();
+            refresh();
+        }
+    }
+    
     function component_home() {
         // clear
         element_html_inner(parent, '');
 
-        function learn_new_words() {
-            let tutorial_word_count = 5;
-            if (word_count <= tutorial_word_count) {
-                console.log('here');
-
-                word_count = tutorial_word_count + 1;
-                words = words_get();
-
-                let tutorial_words = words.slice(0, tutorial_word_count);
-                let tutorial_words_repeated = (tutorial_words)
-                    .concat(_.shuffle(tutorial_words))
-                    .concat(_.shuffle(tutorial_words));
-
-                console.log(words);
-
-                tutorial_prompt();
-                return;
-
-                function tutorial_prompt() {
-
-                    element_html_inner(parent, '');
-
-                    console.log({ tutorial_words_repeated });
-
-                    if (tutorial_words_repeated.length === 0) {
-                        learn_new_words();
-                        return;
-                    }
-
-                    let last = tutorial_words_repeated.pop();
-                    new_word_prompt(last, [], () => {
-                        tutorial_prompt();
-                    });
-                }
-            } else {
-                word_count--;
-                question_index = question_count_max;
-                mode = mode_learn_new;
-                answers = answers_get();
-                refresh();
-            }
-        }
         element_on_click(element_button_primary(element_add(parent, 'div'), 'Learn new words'), learn_new_words);
         element_on_click(element_button_primary(element_add(parent, 'div'), 'Review existing words'), () => {
             question_index = 0;
