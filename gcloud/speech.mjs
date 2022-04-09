@@ -6,8 +6,8 @@ const languageCode = 'fil-PH';
 
 const targetLanguageCode = 'ceb';
 
-let language_directory = './languages/' + targetLanguageCode;
-let path_translations = path.join(language_directory, 'translations.json');
+let translations_directory = './languages/' + targetLanguageCode;
+let path_translations = path.join(translations_directory, 'translations.json');
 let translations = await json_read(path_translations);
 
 for (let english in translations) {
