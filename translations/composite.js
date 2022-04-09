@@ -6,6 +6,7 @@ let ceb_en = JSON.parse(await fs.readFile('./translations/ceb_en.json'));
 
 for (let ceb in ceb_en) {
     for (let en of ceb_en[ceb]) {
+        en = en.toLowerCase();
         if (!en_ceb[en]) {
             en_ceb[en] = [];
         }

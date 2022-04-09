@@ -1,11 +1,12 @@
 {
   "I": [
-    "ako",
-    "kong"
+    "ako"
   ],
   "you": [
     "ikaw",
     "ka",
+    "ninyo",
+    "kamo",
     "kaninyoy",
     "kang"
   ],
@@ -22,7 +23,8 @@
   "to": [
     "sa",
     "nganha",
-    "aron"
+    "aron",
+    "ngadto"
   ],
   "of": [
     "sa",
@@ -41,7 +43,8 @@
   ],
   "that": [
     "nga",
-    "na"
+    "na",
+    "nianang"
   ],
   "have": [
     "adunay",
@@ -88,7 +91,8 @@
     "kondili"
   ],
   "his": [
-    "iya"
+    "iya",
+    "iyang"
   ],
   "by": [
     "pinaagi sa",
@@ -97,6 +101,7 @@
   ],
   "from": [
     "gikan sa",
+    "gikan",
     "nagagikan"
   ],
   "they": [
@@ -133,7 +138,8 @@
     "sa usa ka"
   ],
   "all": [
-    "tanan"
+    "tanan",
+    "tanang"
   ],
   "would": [
     "unta"
@@ -203,7 +209,8 @@
     "walay"
   ],
   "just": [
-    "lang"
+    "lang",
+    "maingon"
   ],
   "him": [
     "siya"
@@ -215,7 +222,8 @@
     "kuhaa"
   ],
   "people": [
-    "mga tawo"
+    "mga tawo",
+    "tawo"
   ],
   "into": [
     "ngadto sa"
@@ -250,7 +258,8 @@
     "kay sa"
   ],
   "then": [
-    "unya"
+    "unya",
+    "dayon"
   ],
   "now": [
     "karon"
@@ -292,7 +301,8 @@
     "duha"
   ],
   "how": [
-    "unsaon"
+    "unsaon",
+    "unsang"
   ],
   "our": [
     "amua",
@@ -321,6 +331,7 @@
   ],
   "because": [
     "kay",
+    "tungod",
     "sanglit"
   ],
   "any": [
@@ -385,52 +396,52 @@
   "si": [
     "si"
   ],
-  "JAMEs": [
+  "james": [
     "santiago"
   ],
-  "SLAVE": [
+  "slave": [
     "ulipon"
+  ],
+  "god": [
+    "dios"
   ],
   "lord": [
     "ginoong"
   ],
-  "JESUS CHRIST": [
+  "jesus christ": [
     "jesu-cristo"
   ],
-  "TEN": [
+  "ten": [
     "napulo"
   ],
-  "FAMILY": [
+  "family": [
     "banay"
   ],
-  "Dispersion": [
+  "dispersion": [
     "nanghitibulaag"
   ],
   "greetings": [
     "komusta"
   ],
-  "BROTHER": [
+  "brother": [
     "igsoon"
   ],
   "count": [
     "isipa"
   ],
-  "IS": [
-    "maoy"
+  "is": [
+    "maoy",
+    "mao"
   ],
   "great": [
     "tumang"
   ],
-  "HAPPINESS": [
+  "happiness": [
     "kalipay"
   ],
   "fall": [
     "igakasugat",
     "mangatagak"
-  ],
-  "YOU": [
-    "ninyo",
-    "kamo"
   ],
   "differing": [
     "nagkalainlaing"
@@ -450,19 +461,14 @@
   "suffering": [
     "pagkamainantuson"
   ],
-  "is": [
-    "mao"
-  ],
   "must": [
     "kinahanglan"
   ],
   "allow": [
     "tugotan"
   ],
-  "PERFECT": [
-    "hingpit"
-  ],
   "perfect": [
+    "hingpit",
     "mamahingpit"
   ],
   "lacking": [
@@ -475,25 +481,16 @@
   "wisdom": [
     "kaalam"
   ],
-  "Himself": [
+  "himself": [
     "papangayoa"
   ],
   "giveth": [
     "nagapanghatag"
   ],
-  "tO": [
-    "ngadto"
-  ],
-  "ALL": [
-    "tanang"
-  ],
-  "PEOPLE": [
-    "tawo"
-  ],
   "bountifully": [
     "madagayaon"
   ],
-  "NEVER": [
+  "never": [
     "gayud"
   ],
   "upbraid": [
@@ -505,7 +502,7 @@
   "seek": [
     "mangayo"
   ],
-  "OTHERS": [
+  "others": [
     "uban"
   ],
   "doubts": [
@@ -527,7 +524,7 @@
   "tossed": [
     "ginakosokoso"
   ],
-  "WIND": [
+  "wind": [
     "hangin"
   ],
   "do not": [
@@ -539,34 +536,33 @@
   "jeans": [
     "maong"
   ],
-  "Receive": [
-    "madawat"
-  ],
-  "FROM": [
-    "gikan"
+  "receive": [
+    "madawat",
+    "dawata"
   ],
   "sir": [
     "ginoo"
   ],
-  "MAN": [
-    "tawong"
+  "man": [
+    "tawong",
+    "tawhana"
   ],
   "double": [
     "tagurhag"
   ],
-  "THINKING": [
+  "thinking": [
     "panghunahuna"
   ],
   "unstable": [
     "mabalhinon"
   ],
-  "WAYS": [
+  "ways": [
     "paagi"
   ],
   "available": [
     "anaa"
   ],
-  "UNDER": [
+  "under": [
     "ubos"
   ],
   "case": [
@@ -575,14 +571,8 @@
   "rejoice": [
     "magakalipay"
   ],
-  "PROUD": [
+  "proud": [
     "mapasigarbohon"
-  ],
-  "BECAUSE": [
-    "tungod"
-  ],
-  "HIS": [
-    "iyang"
   ],
   "lifted": [
     "paghituboy"
@@ -592,9 +582,6 @@
   ],
   "exhaustion": [
     "pagkaubos"
-  ],
-  "JUST": [
-    "maingon"
   ],
   "boiling": [
     "bulak"
@@ -607,9 +594,6 @@
   ],
   "ra": [
     "ra"
-  ],
-  "DAY": [
-    "adlaw"
   ],
   "rises": [
     "mosubang"
@@ -635,16 +619,13 @@
   "perishes": [
     "mawagtang"
   ],
-  "As": [
-    "ingon"
-  ],
   "again": [
     "usab"
   ],
   "among": [
     "taliwala"
   ],
-  "CONDUCT": [
+  "conduct": [
     "pagpahigayon"
   ],
   "bluffing": [
@@ -667,7 +648,7 @@
   "theirs": [
     "kanila"
   ],
-  "Oh let": [
+  "oh let": [
     "ipaingon"
   ],
   "tempted": [
@@ -675,10 +656,14 @@
     "gitintal",
     "matintal"
   ],
+  "i": [
+    "ako",
+    "kong"
+  ],
   "evil": [
     "dautan"
   ],
-  "ONE-USA": [
+  "one-usa": [
     "matag-usa"
   ],
   "talkative": [
@@ -724,10 +709,10 @@
   "heights": [
     "kahitas-an"
   ],
-  "FATHER": [
+  "father": [
     "amahan"
   ],
-  "LIGHT": [
+  "light": [
     "kahayag"
   ],
   "changed": [
@@ -739,7 +724,7 @@
   "change": [
     "pagkabalhin"
   ],
-  "Carry On": [
+  "carry on": [
     "kabubut-on"
   ],
   "earnings": [
@@ -752,7 +737,7 @@
   "through": [
     "pinaagi"
   ],
-  "MEETING": [
+  "meeting": [
     "pulong"
   ],
   "truth": [
@@ -791,10 +776,7 @@
   "anger": [
     "kasuko"
   ],
-  "THAT": [
-    "nianang"
-  ],
-  "RIGHTEOUSNESS": [
+  "righteousness": [
     "pagkamatarung"
   ],
   "approval": [
@@ -815,16 +797,13 @@
   "wickedness": [
     "pagkadautan"
   ],
-  "receive": [
-    "dawata"
-  ],
   "meekness": [
     "kaaghop"
   ],
   "planted": [
     "tinanum"
   ],
-  "SAVES": [
+  "saves": [
     "makaluwas"
   ],
   "loose": [
@@ -861,7 +840,7 @@
   "glass": [
     "salamin"
   ],
-  "FACE": [
+  "face": [
     "nawong"
   ],
   "carrying": [
@@ -873,17 +852,11 @@
   "leave": [
     "molakaw"
   ],
-  "INSTANT": [
+  "instant": [
     "dihadiha"
   ],
   "forget": [
     "mahikalimot"
-  ],
-  "THEN": [
-    "dayon"
-  ],
-  "How": [
-    "unsang"
   ],
   "of man": [
     "pagkadagwaya"
@@ -891,7 +864,7 @@
   "focuses": [
     "nagatutok"
   ],
-  "LAWS": [
+  "laws": [
     "kasugoan"
   ],
   "gives": [
@@ -930,20 +903,17 @@
   "forbear": [
     "magpugong"
   ],
-  "TONGUE": [
+  "tongue": [
     "dila"
   ],
   "deceives": [
     "nagalimbong"
   ],
-  "HEART": [
+  "heart": [
     "kasingkasing"
   ],
   "religion": [
     "rilihiyon"
-  ],
-  "man": [
-    "tawhana"
   ],
   "profit": [
     "magpulos"
@@ -957,7 +927,7 @@
   "before": [
     "atubangan"
   ],
-  "VISITING": [
+  "visiting": [
     "pagduaw"
   ],
   "ilo": [
