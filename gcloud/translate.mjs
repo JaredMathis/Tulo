@@ -49,7 +49,7 @@ words_english = words_english.concat(top100).concat(simple1);
 await translate_and_save(words_english, language_code_english, language_code_cebuano);
 
 async function translate_and_save(words, sourceLanguageCode, targetLanguageCode) {
-    let language_directory = './translations/' + targetLanguageCode;
+    let language_directory = './translations/';
     await directory_create_if_not_exists(language_directory);
 
     let path_translations = path.join(language_directory, `${sourceLanguageCode}_${targetLanguageCode}.json`);
