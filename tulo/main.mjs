@@ -17,7 +17,7 @@ function js_random_integer(max) {
 }
 
 export default function tulo_main(parent) {
-    let word_count = 5;
+    let word_count = 0;
     let question_count_max = 15;
     // question_count_max = 1
     let sleep_wait_ms = 0;
@@ -45,16 +45,40 @@ export default function tulo_main(parent) {
         element_html_inner(parent, '');
 
         element_on_click(element_button_primary(element_add(parent, 'div'), 'Learn new words'), () => {
-            let tutorial_word_count = 5;
+            let tutorial_word_count = 2;
             if (word_count <= tutorial_word_count) {
-                word_count = tutorial_word_count;
+                console.log('here');
                 
-                // clear
-                element_html_inner(parent, '');
+                word_count = tutorial_word_count;
+                words = words_get();
+                
+                let tutorial_words = words.slice(0, word_count);
+                let tutorial_words_repeated = _.shuffle(tutorial_words)
+                    .concat(_.shuffle(tutorial_words))
+                    .concat(_.shuffle(tutorial_words));
 
-                // tutorial
-                new_word_prompt(words[0], [], _.noop);
+                console.log(words)
 
+                tutorial_prompt();
+                return;
+                    
+                function tutorial_prompt() {
+
+                    element_html_inner(parent, '');
+
+                    console.log({tutorial_words_repeated})
+
+                    if (tutorial_words_repeated.length === 0) {
+                        // TODO
+                        return;
+                    }
+
+                    let last = tutorial_words_repeated.pop();
+                    new_word_prompt(last, [], () => {
+                        tutorial_prompt();
+                    });
+                }
+                
             } else {
                 word_count--;
                 question_index = question_count_max;
@@ -62,6 +86,7 @@ export default function tulo_main(parent) {
                 answers = answers_get();
                 refresh();
             }
+
         });
         element_on_click(element_button_primary(element_add(parent, 'div'), 'Review existing words'), () => {
             question_index = 0;
@@ -89,6 +114,7 @@ export default function tulo_main(parent) {
         let filtered = top100.filter(w => !skip_word_if(w));
         let words_sorted = filtered.slice(0, word_count);
         let words = words_sorted;
+        console.log({filtered,words_sorted,words})
         return words;
     }
 
