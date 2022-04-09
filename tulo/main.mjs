@@ -1,7 +1,7 @@
 import element_add from '../element/add.mjs'
 import element_html_inner from '../element/html_inner.mjs'
 import element_button_primary from '../element/button_primary.mjs'
-import top100 from '../english/simple1.txt.json' assert { type: 'json' };
+import top100 from '../words/simple1.txt.json' assert { type: 'json' };
 import _ from '../external/lodash.mjs'
 import phrase_untranslated from './phrase_untranslated.mjs';
 import phrase_translated from './phrase_translated.mjs';
