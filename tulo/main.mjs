@@ -1,7 +1,8 @@
 import element_add from '../element/add.mjs'
 import element_html_inner from '../element/html_inner.mjs'
 import element_button_primary from '../element/button_primary.mjs'
-import top100 from '../words/simple1.txt.json' assert { type: 'json' };
+// import top100 from '../words/simple1.txt.json' assert { type: 'json' };
+import top100 from '../words/james_1.en.json' assert { type: 'json' };
 import _ from '../external/lodash.mjs'
 import phrase_untranslated from './phrase_untranslated.mjs';
 import phrase_translated from './phrase_translated.mjs';
@@ -18,7 +19,7 @@ function js_random_integer(max) {
 
 export default function tulo_main(parent) {
     // How many words the user has learned so far
-    let word_count = 6;
+    let word_count = 38;
     let question_count_max = 15;
     // question_count_max = 1
     let sleep_wait_ms = 0;
@@ -83,7 +84,7 @@ export default function tulo_main(parent) {
             refresh();
         }
     }
-    
+
     function component_home() {
         // clear
         element_html_inner(parent, '');
