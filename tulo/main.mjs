@@ -45,7 +45,6 @@ export default function tulo_main(parent) {
     function learn_new_words() {
         let tutorial_word_count = 5;
         if (word_count <= tutorial_word_count) {
-            console.log('here');
 
             word_count = tutorial_word_count + 1;
             words = words_get();
