@@ -35,7 +35,7 @@ async function translate(sourceLanguageCode, targetLanguageCode, text) {
     return response.translations;
 }
 
-const language_code_cebuano = 'ceb';
+let language_code_cebuano = 'ceb';
 let language_code_english = 'en';
 let language_code_spanish = 'es';
 
