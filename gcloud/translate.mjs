@@ -37,6 +37,7 @@ async function translate(sourceLanguageCode, targetLanguageCode, text) {
 
 const language_code_cebuano = 'ceb';
 let language_code_english = 'en';
+let language_code_spanish = 'es';
 
 await translate_and_save(james_1_cebuano, language_code_cebuano, language_code_english);
 
