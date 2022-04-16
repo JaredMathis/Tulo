@@ -8,7 +8,7 @@ import file_exists from '../js/file_exists.mjs';
 
 import top100 from '../words/top100.txt.json' assert { type: 'json' };
 import simple1 from '../words/simple1.txt.json' assert { type: 'json' };
-import james_1 from '../words/james_1.json' assert { type: 'json' };
+import james_1_cebuano from '../words/james_1.json' assert { type: 'json' };
 import james_1_spanish from '../words/james_1.spanish.json' assert { type: 'json' };
 
 gcloud_auth_initialize()
@@ -38,7 +38,7 @@ async function translate(sourceLanguageCode, targetLanguageCode, text) {
 const language_code_cebuano = 'ceb';
 let language_code_english = 'en';
 
-await translate_and_save(james_1, language_code_cebuano, language_code_english);
+await translate_and_save(james_1_cebuano, language_code_cebuano, language_code_english);
 
 let words_english = [
     'I',
