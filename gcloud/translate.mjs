@@ -70,7 +70,7 @@ async function translate_and_save(words, sourceLanguageCode, targetLanguageCode)
         await fs.writeFile(path_translations, JSON.stringify(translations, null, 2));
     }
 
-    let counter_max_enabled = true;
+    let counter_max_enabled = false;
     let counter_max = 2
     let counter = 0;
     for (let w of words) {
