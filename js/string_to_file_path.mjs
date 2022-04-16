@@ -1,4 +1,5 @@
 export default function string_to_file_path(s) {
+  if (s === 'con') s += '_';
   return string_replace_all(s, '?', '_');
 }
 
