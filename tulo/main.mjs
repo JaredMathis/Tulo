@@ -19,7 +19,7 @@ function js_random_integer(max) {
 
 export default function tulo_main(parent) {
     // How many words the user has learned so far
-    let word_count = 40;
+    let word_count = 50;
     let question_count_max = 15;
     // question_count_max = 1
     let sleep_wait_ms = 0;
