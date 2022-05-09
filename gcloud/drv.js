@@ -12,12 +12,15 @@ const languageCode = 'en-US';
 
 let parsed = await json_read('../BiblePublic/public/drv_parsed.json');
 
-let jude = parsed.filter(p => p.book === 'James');
-let verses = jude;
+let new_testament = parsed.filter(p => p.book === 'Matthew')[0];
+
+let filtered = parsed.filter(p => parsed.indexOf(p) >= parsed.indexOf(new_testament));
+let verses = filtered;
 
 let video_paths = [];
 
 for (let v of verses) {
+    // console.log({v})
     let text = v.tokens.join(' ')
     let file_name = 'bible/' + v.reference.replace(':', '_');
     let {output_path} = await gcloud_text_to_speech(text, languageCode, file_name);
