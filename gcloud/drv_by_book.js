@@ -4,6 +4,7 @@ import textToImage from "text-to-image";
 import command from '../js/command.mjs'
 import file_exists from "../js/file_exists.mjs";
 import {promises as fs} from 'fs'
+import _ from "lodash";
 
 let always_generate_image = false;
 let always_generate_video = false;
@@ -40,7 +41,7 @@ for (let v of verses) {
         await command(`ffmpeg -loop 1 -i "${file_name_image}" -i "${output_path}" -shortest -acodec copy -vcodec mjpeg "${file_name_video}"`)
     }
 
-    books[p.book].push(file_name_video)
+    books[v.book].push(file_name_video)
 }
 
 for (let book in books) {
