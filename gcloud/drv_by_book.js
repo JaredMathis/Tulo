@@ -14,7 +14,7 @@ let parsed = await json_read('../BiblePublic/public/drv_parsed.json');
 
 let books = {};
 for (let p of parsed) {
-    if (!books.includes(p.book)) {
+    if (!books[p.book]) {
         books[p.book] = [];
     }
 }
