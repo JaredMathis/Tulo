@@ -19,6 +19,7 @@ for (let p of parsed) {
     }
 }
 
+let verses = parsed;
 
 for (let v of verses) {
     let text = v.tokens.join(' ')
