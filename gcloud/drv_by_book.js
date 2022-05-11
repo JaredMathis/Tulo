@@ -13,6 +13,8 @@ const languageCode = 'en-US';
 
 let parsed = await json_read('../BiblePublic/public/drv_parsed.json');
 
+// parsed = parsed.filter(p => p.book === 'Jude');
+
 let books = {};
 for (let p of parsed) {
     if (!books[p.book]) {
@@ -41,7 +43,7 @@ for (let v of verses) {
         await command(`ffmpeg -loop 1 -i "${file_name_image}" -i "${output_path}" -shortest -acodec copy -vcodec mjpeg "${file_name_video}"`)
     }
 
-    books[v.book].push(file_name_video)
+    books[v.book].push('../' + file_name_video)
 }
 
 for (let book in books) {
