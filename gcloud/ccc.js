@@ -6,6 +6,7 @@ import file_exists from "../js/file_exists.mjs";
 import {promises as fs} from 'fs'
 import _ from "lodash";
 
+let never_generate_video = true;
 let always_generate_image = false;
 let always_generate_video = false;
 
@@ -61,12 +62,16 @@ for (let v of verses) {
 
     let file_name_image = './image/' + file_name + '.png';
     if (always_generate_image || !await file_exists(file_name_image)) {
-        await textToImage.generate(v.reference + ' ' + text, {
+        await textToImage.generate(text.replaceAll('\n', ' ').replaceAll('\r', ' '), {
             maxWidth: 800,
             customHeight: 800,
             debug: true,
             debugFilename: file_name_image,
         });
+    }
+
+    if (never_generate_video) {
+        continue;
     }
 
     let file_name_video = `./video/${file_name}.mkv`;
