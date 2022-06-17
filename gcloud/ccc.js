@@ -63,8 +63,8 @@ for (let v of verses) {
     let file_name_image = './image/' + file_name + '.png';
     if (always_generate_image || !await file_exists(file_name_image)) {
         await textToImage.generate(text.replaceAll('\n', ' ').replaceAll('\r', ' '), {
-            maxWidth: 800,
-            customHeight: 800,
+            maxWidth: 600,
+            customHeight: 600,
             debug: true,
             debugFilename: file_name_image,
         });
