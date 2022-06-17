@@ -13,7 +13,7 @@ const languageCode = 'en-US';
 
 let parsed = await json_read('../BiblePublic/public/drv_parsed.json');
 
-parsed = parsed.filter(p => p.book === 'Leviticus');
+parsed = parsed.filter(p => p.book === 'Deuteronomy');
 
 let books = {};
 for (let p of parsed) {

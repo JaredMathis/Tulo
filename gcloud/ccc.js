@@ -16,23 +16,23 @@ let parsed = await json_read('../Catholic/generated/ccc.json');
 let parts = [
     {
         name: 'PROLOGUE',
-        first: '__P1.HTM'
+        first: '__P1.HTM',
     },
     {
         name: 'PART ONE: THE PROFESSION OF FAITH',
-        first: '__P8.HTM'
+        first: '__P8.HTM',
     },
     {
         name: 'PART TWO: THE CELEBRATION OF THE CHRISTIAN MYSTERY',
-        first: '__P2T.HTM'
+        first: '__P2T.HTM',
     },
     {
         name: 'PART THREE: LIFE IN CHRIST',
-        first: '__P5D.HTM'
+        first: '__P5D.HTM',
     },
     {
         name: 'PART FOUR: CHRISTIAN PRAYER',
-        first: '__P8Z.HTM'
+        first: '__P8Z.HTM',
     },
     // {
     //     name: '',
@@ -44,23 +44,19 @@ let parts = [
     // },
 ]
 
-console.log(parsed)
-process.exit();
 
-parsed = parsed.filter(p => p.book === 'Leviticus');
-
-let books = {};
-for (let p of parsed) {
-    if (!books[p.book]) {
-        books[p.book] = [];
-    }
-}
+// let books = {};
+// for (let p of parsed) {
+//     if (!books[p.book]) {
+//         books[p.book] = [];
+//     }
+// }
 
 let verses = parsed;
 
 for (let v of verses) {
-    let text = v.tokens.join(' ')
-    let file_name = 'bible/' + v.reference.replace(':', '_');
+    let text = v.text
+    let file_name = 'ccc/' + v.paragraph;
     let {output_path} = await gcloud_text_to_speech(text, languageCode, file_name);
 
     let file_name_image = './image/' + file_name + '.png';
@@ -77,17 +73,17 @@ for (let v of verses) {
         await command(`ffmpeg -loop 1 -i "${file_name_image}" -i "${output_path}" -shortest -acodec copy -vcodec mjpeg "${file_name_video}"`)
     }
 
-    books[v.book].push('../' + file_name_video)
+    // books[v.book].push('../' + file_name_video)
 }
 
-for (let book in books) {
-    let video_paths = books[book];
-    let joined = video_paths.map(p => `file '${p}'`).join("\n");
-    let temp_file_name = `gitignore/${book}.txt`;
-    fs.writeFile(temp_file_name, joined);
-    let cmd = `ffmpeg -f concat -safe 0 -i "${temp_file_name}" -c copy "gitignore/${book} - Catholic Audio Bible - Douay-Rheims Version.mkv"`
-    let output = await command(cmd)
-}
+// for (let book in books) {
+//     let video_paths = books[book];
+//     let joined = video_paths.map(p => `file '${p}'`).join("\n");
+//     let temp_file_name = `gitignore/${book}.txt`;
+//     fs.writeFile(temp_file_name, joined);
+//     let cmd = `ffmpeg -f concat -safe 0 -i "${temp_file_name}" -c copy "gitignore/${book} - Catholic Audio Bible - Douay-Rheims Version.mkv"`
+//     let output = await command(cmd)
+// }
 
 
 // console.log(output)
