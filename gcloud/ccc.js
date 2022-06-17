@@ -58,7 +58,7 @@ parts.forEach(part => {
         part.last_paragraph_index = _.last(parsed).paragraph
     }
 })
-
+console.log(parts)
 
 // let books = {};
 // for (let p of parsed) {
@@ -93,7 +93,8 @@ for (let v of verses) {
         await command(`ffmpeg -loop 1 -i "${file_name_image}" -i "${output_path}" -shortest -acodec copy -vcodec mjpeg "${file_name_video}"`)
     }
 
-    _.find(parts, part =>  part.first_paragraph_index <= v.paragraph && v.paragraph <= part.last_paragraph_index).files.push('../' + file_name_video)
+    // console.log(v.paragraph)
+    _.filter(parts, part =>  (part.first_parargaph_index <= v.paragraph) && (v.paragraph <= part.last_paragraph_index))[0].files.push('../' + file_name_video)
 }
 
 for (let part of parts) {
