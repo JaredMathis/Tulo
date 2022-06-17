@@ -17,7 +17,7 @@ let parsed = await json_read('../Catholic/generated/ccc.json');
 let parts = [
     {
         name: 'PROLOGUE',
-        first: '__P1.HTM',
+        first: '__P1.HTM'
     },
     {
         name: 'PART ONE: THE PROFESSION OF FAITH',
@@ -45,6 +45,12 @@ let parts = [
     // },
 ]
 
+parts.forEach(part => {
+    part.first_index = _.find(parsed, p => p.href === part.first).paragraph;
+    part.files = [];
+})
+
+console.log(parts)
 
 // let books = {};
 // for (let p of parsed) {
@@ -63,8 +69,8 @@ for (let v of verses) {
     let file_name_image = './image/' + file_name + '.png';
     if (always_generate_image || !await file_exists(file_name_image)) {
         await textToImage.generate(text.replaceAll('\n', ' ').replaceAll('\r', ' '), {
-            maxWidth: 600,
-            customHeight: 600,
+            maxWidth: 800,
+            customHeight: 800,
             debug: true,
             debugFilename: file_name_image,
         });
