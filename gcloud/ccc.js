@@ -94,19 +94,15 @@ for (let v of verses) {
         await command(`ffmpeg -loop 1 -i "${file_name_image}" -i "${output_path}" -shortest -acodec copy -vcodec mjpeg "${file_name_video}"`)
     }
 
-    // _.find(parts, part => v.paragraph >= part.first_parargaph_index).
-
-    // books[v.book].push('../' + file_name_video)
+    _.find(parts, part =>  part.first_paragraph_index <= v.paragraph && v.paragraph <= part.last_paragraph_index).files.push('../' + file_name_video)
 }
 
-// for (let book in books) {
-//     let video_paths = books[book];
-//     let joined = video_paths.map(p => `file '${p}'`).join("\n");
-//     let temp_file_name = `gitignore/${book}.txt`;
-//     fs.writeFile(temp_file_name, joined);
-//     let cmd = `ffmpeg -f concat -safe 0 -i "${temp_file_name}" -c copy "gitignore/${book} - Catholic Audio Bible - Douay-Rheims Version.mkv"`
-//     let output = await command(cmd)
-// }
-
-
-// console.log(output)
+for (let part in parts) {
+    let video_paths = part.files;
+    let joined = video_paths.map(p => `file '${p}'`).join("\n");
+    let temp_file_name = `gitignore/${part.name}.txt`;
+    fs.writeFile(temp_file_name, joined);
+    let cmd = `ffmpeg -f concat -safe 0 -i "${temp_file_name}" -c copy "gitignore/${part.name} - Catholic Church Catechism.mkv"`
+    let output = await command(cmd)
+    console.log(output)
+}
