@@ -6,7 +6,7 @@ import file_exists from "../js/file_exists.mjs";
 import {promises as fs} from 'fs'
 import _ from "lodash";
 
-let never_generate_video = true;
+let never_generate_video = false;
 let always_generate_image = false;
 let always_generate_video = false;
 
@@ -59,7 +59,6 @@ parts.forEach(part => {
     }
 })
 
-console.log(parts)
 
 // let books = {};
 // for (let p of parsed) {
@@ -97,7 +96,8 @@ for (let v of verses) {
     _.find(parts, part =>  part.first_paragraph_index <= v.paragraph && v.paragraph <= part.last_paragraph_index).files.push('../' + file_name_video)
 }
 
-for (let part in parts) {
+for (let part of parts) {
+    console.log(part)
     let video_paths = part.files;
     let joined = video_paths.map(p => `file '${p}'`).join("\n");
     let temp_file_name = `gitignore/${part.name}.txt`;
