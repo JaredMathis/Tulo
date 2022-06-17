@@ -12,15 +12,20 @@ const languageCode = 'en-US';
 
 let parsed = await json_read('../BiblePublic/public/drv_parsed.json');
 
-let new_testament = parsed.filter(p => p.book === 'Matthew')[0];
+let new_testament_begin = parsed.filter(p => p.book === 'Matthew')[0];
 
-let filtered = parsed.filter(p => parsed.indexOf(p) >= parsed.indexOf(new_testament));
+let epistles_begin = parsed.filter(p => p.book === 'Romans')[0];
+
+let filtered = parsed.filter(p => 
+    parsed.indexOf(p) >= parsed.indexOf(epistles_begin)
+    );
 let verses = filtered;
+
+// verses = parsed;
 
 let video_paths = [];
 
 for (let v of verses) {
-    // console.log({v})
     let text = v.tokens.join(' ')
     let file_name = 'bible/' + v.reference.replace(':', '_');
     let {output_path} = await gcloud_text_to_speech(text, languageCode, file_name);
@@ -44,7 +49,7 @@ for (let v of verses) {
 
 let joined = video_paths.map(p => `file '${p}'`).join("\n");
 fs.writeFile("temp.txt", joined);
-let cmd = `ffmpeg -f concat -safe 0 -i temp.txt -c copy output.mkv`
+let cmd = `ffmpeg -f concat -safe 0 -i temp.txt -c copy output_epi_apo.mkv`
 let output = await command(cmd)
 
 console.log(output)
