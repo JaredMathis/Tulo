@@ -46,8 +46,17 @@ let parts = [
 ]
 
 parts.forEach(part => {
-    part.first_index = _.find(parsed, p => p.href === part.first).paragraph;
+    part.first_parargaph_index = _.find(parsed, p => p.href === part.first).paragraph;
     part.files = [];
+})
+parts.forEach(part => {
+    let index = parts.indexOf(part);
+    let index_next = index + 1;
+    if (index_next < parts.length) {
+        part.last_paragraph_index = parts[index_next].first_parargaph_index - 1;
+    } else {
+        part.last_paragraph_index = _.last(parsed).paragraph
+    }
 })
 
 console.log(parts)
@@ -84,6 +93,8 @@ for (let v of verses) {
     if (always_generate_video || !await file_exists(file_name_video)) {
         await command(`ffmpeg -loop 1 -i "${file_name_image}" -i "${output_path}" -shortest -acodec copy -vcodec mjpeg "${file_name_video}"`)
     }
+
+    // _.find(parts, part => v.paragraph >= part.first_parargaph_index).
 
     // books[v.book].push('../' + file_name_video)
 }
