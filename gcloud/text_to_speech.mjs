@@ -17,7 +17,7 @@ export default async function gcloud_text_to_speech(text, languageCode, file_nam
 
   let output_path = path.join(audio_directory, string_to_file_path(file_name || text) + '.mp3')
   if (await file_exists(output_path)) {
-    console.log('skipping ' + output_path);
+    //console.log('skipping ' + output_path);
     return {output_path};
   }
 

@@ -62,7 +62,8 @@ for (let v of verses) {
     let file_name_image = './image/' + file_name + '.png';
     if (always_generate_image || !await file_exists(file_name_image)) {
         await textToImage.generate(v.reference + ' ' + text, {
-            customHeight: 400,
+            maxWidth: 800,
+            customHeight: 800,
             debug: true,
             debugFilename: file_name_image,
         });
