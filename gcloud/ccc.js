@@ -20,19 +20,19 @@ let parts = [
         first: '__P1.HTM'
     },
     {
-        name: 'PART ONE: THE PROFESSION OF FAITH',
+        name: 'PART ONE THE PROFESSION OF FAITH',
         first: '__P8.HTM',
     },
     {
-        name: 'PART TWO: THE CELEBRATION OF THE CHRISTIAN MYSTERY',
+        name: 'PART TWO THE CELEBRATION OF THE CHRISTIAN MYSTERY',
         first: '__P2T.HTM',
     },
     {
-        name: 'PART THREE: LIFE IN CHRIST',
+        name: 'PART THREE LIFE IN CHRIST',
         first: '__P5D.HTM',
     },
     {
-        name: 'PART FOUR: CHRISTIAN PRAYER',
+        name: 'PART FOUR CHRISTIAN PRAYER',
         first: '__P8Z.HTM',
     },
     // {
@@ -97,12 +97,12 @@ for (let v of verses) {
     _.filter(parts, part =>  (part.first_parargaph_index <= v.paragraph) && (v.paragraph <= part.last_paragraph_index))[0].files.push('../' + file_name_video)
 }
 
-for (let part of parts) {
+for (let part of parts.slice(1)) {
     console.log(part)
     let video_paths = part.files;
     let joined = video_paths.map(p => `file '${p}'`).join("\n");
     let temp_file_name = `gitignore/${part.name}.txt`;
-    fs.writeFile(temp_file_name, joined);
+    await fs.writeFile(temp_file_name, joined);
     let cmd = `ffmpeg -f concat -safe 0 -i "${temp_file_name}" -c copy "gitignore/${part.name} - Catholic Church Catechism.mkv"`
     let output = await command(cmd)
     console.log(output)
